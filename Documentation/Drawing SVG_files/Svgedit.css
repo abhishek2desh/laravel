@@ -1,0 +1,145 @@
+/** Add css rules here for your application. */
+
+body, html {
+  height: 100%;
+}
+body {
+  background-color:ghostwhite
+  font-family: Arial Unicode MS, Arial, sans-serif;
+  font-size: small;
+  margin: 8px;
+  margin-top: 3px;
+}
+
+a { 
+  color: #000;
+}
+
+a:visited {
+  color: #000; 
+}
+.panel {
+	background-color:ghostwhite
+}
+.centerPanel {
+	border-bottom: 1px solid #666;
+	border: 1px solid #bbbbbb;
+}
+
+.leftPanel-StackContent {
+  height: 100%;
+}
+
+.svgMenu {
+  background:  url(bar28.gif) repeat-x 0 0;
+  cursor: default;
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+.svgMenuItemTitle {
+  cursor: pointer;
+  cursor: hand;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+
+.toolButton {
+	border-color:rgb(244,228,170);
+	border-style:solid;
+	border-width:0px;
+}
+.toolButton-selected {
+	border-color:red;
+	border-width:1px;
+}
+.digitItem {
+	border-color:white;
+	border-style:solid;
+	border-width:1px;
+}
+.digitItem-selected {
+	border-color:red;
+}
+
+.gwt-MenuBar .gwt-MenuItem-selected {
+  background: lavender;
+}
+.gwt-MenuBar-vertical .subMenuIcon-selected {
+  background: lavender;
+}
+
+.gwt-MenuItem {
+  font-size: 10pt;
+  margin: 1px;
+  cursor: default;
+}
+
+.rightPanel {
+  border: 1px solid #BBBBBB;
+  padding: 3px;
+  width: 15em;
+}
+
+.elementPanelTable {
+	font-family:arial;
+	font-size:8pt;
+	width:150pt;
+}
+.cssColorEditorButton {
+	width:30pt;
+	height:15pt;
+	background-color:white;
+	border-width:0;
+}
+.cssColorEditorText {
+	width:50pt;
+	height:15pt;
+}
+
+.svgLengthEditorButton {
+	width:30pt;
+	height:15pt;
+	background-color:white;
+	border-width:0;
+}
+.svgLengthColorEditorText {
+	width:50pt;
+	height:15pt;
+}
+.colorTableButton {
+	width:15pt;
+	height:15pt;
+	border-width:0;
+}
+
+.gwt-StackPanel {
+  border-bottom: 1px solid #666;
+}
+.gwt-StackPanel .gwt-StackPanelItem {
+  cursor: pointer;
+  cursor: hand;
+  font-weight: bold;
+  font-size: 12pt;
+  background:  url(bar28.gif) repeat-x 0 0;
+}
+
+
+.gwt-PopupPanel {
+  border: 3px solid #C3D9FF;
+  padding: 3px;
+  background: white;
+}
+
+.freezeWindow {
+	background-color:lavender;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+	filter: alpha(opacity=50);
+	opacity:.50;
+}
+
+.gwt-TextArea-readonly {
+  background-color:ghostwhite;
+  color:black;
+}

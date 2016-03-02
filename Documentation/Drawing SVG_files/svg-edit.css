@@ -1,0 +1,119 @@
+@CHARSET "ISO-8859-1";
+
+.svg-edit-TaskImage {
+	padding: 1px 1px 1px 1px;
+	border: 0px solid #ccc;
+	cursor: pointer;
+    cursor: hand;
+}
+.svg-edit-TaskImage-started {
+	border: 1px solid red;
+}
+.svg-edit-TaskImage:hover {
+	border-width: 1px;
+	border-color: #9cf #69e #69e #7af;
+}
+
+.svg-edit-CommandImage {
+	padding: 1px 1px 1px 1px;
+	border: 0px solid #ccc;
+	cursor: pointer;
+    cursor: hand;
+}
+.svg-edit-CommandImage:hover {
+	border-width: 1px;
+	border-color: #9cf #69e #69e #7af;
+}
+.svg-edit-CommandImage-disabled {
+	border-width: 0px;
+	cursor: default;
+	opacity: .5;
+    filter: alpha(opacity=40);
+    zoom: 1;
+}
+.svg-edit-CommandImage-disabled:hover {
+	border-width: 0px;
+}
+.svg-window {
+  border: 1px solid grey;
+  background-color: lavender;
+}
+
+.svgPanel {
+  background-color: lavender;
+}
+
+.svg-edit-SVGMenu-Sienna {
+  color : sienna;
+  background-color: white;
+  cursor: default;
+  font-weight: bold;
+  font-size: 12pt;
+  width : 28px;
+}
+.svg-edit-SVGMenuItem-Sienna {
+  color : sienna;
+  cursor: pointer;
+  cursor: hand;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.gwt-MenuBar-vertical .subMenuIcon-selected {
+  background: papayawhip;
+}
+
+.svg-edit-SVGMenu {
+  background:  url(bar28.gif) repeat-x 0 0;
+  cursor: default;
+  font-weight: bold;
+  font-size: 12pt;
+  width : 28px;
+}
+
+.svg-edit-SVGMenuItem {
+  cursor: pointer;
+  cursor: hand;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.svg-edit-SVGWindow {
+ 	background-color: white;
+  	border: 0px solid #666;
+}
+.svg-edit-ChooseColorButton {
+	marging : 0px 0px;
+	padding : 0px 0px;
+	font-size: small;
+	cursor: pointer;
+    cursor: hand;
+	border: 1px solid black;
+	background-color:white;
+}
+
+.ptyEditor {
+	font-family:arial,verdana;
+	font-size:8pt;
+}
+.mapPanel {
+	width:100%;
+	height:100%;
+}
+.ptyEditorText {
+	width:120pt;
+}
+.ptyEditorButton {
+	width:30pt;
+	height:15pt;
+	background-color:white;
+	border-width:0;
+}
+.ptyEditorListBox {
+}
+
+.ptyOnError {
+	background-color:salmon;
+}
+.ptyOnRefresh {
+	background-color:yellow;
+}

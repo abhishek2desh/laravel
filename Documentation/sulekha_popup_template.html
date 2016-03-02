@@ -1,0 +1,510 @@
+ <html>
+
+<head>
+  <script>/* !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); */
+  </script>
+<script type="text/javascript">
+if (typeof jQuery == 'undefined') {
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+  //Nps Window Loaded
+  if (typeof dataLayer == 'undefined') {
+    window.dataLayer = window.dataLayer || [];
+    }
+      dataLayer.push({
+        'event' : 'tvc_npsloaded'
+      });
+
+
+     
+
+
+</script>
+
+
+   
+<style>
+
+label > input{ /* HIDE RADIO */
+   visibility: hidden; /* Makes input not-clickable */
+   position: absolute;
+}
+.smiley{
+    min-height: 50px;
+    height: 25%;
+    background-repeat: no-repeat;
+    display: inline-flex;
+    width: 7%;
+    background-size: 95%;
+    /* left: 0; */
+    max-height: 55px;
+    max-width: 54px;
+    margin-right: 10px;
+}
+.sad{
+    background-image: url('http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/sad.png');
+}
+label > input:checked + div.sad{
+  background-image: url('http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/sadc.png');
+}
+.smile{
+    background-image: url('http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/smile.png');
+    
+}
+
+label > input:checked + div.smile{
+  background-image: url('http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/smilec.png');
+}
+.happy{
+    background-image: url('http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/happy.png');
+}
+
+label > input:checked + div.happy{
+  background-image: url('http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/happyc.png');
+}
+#tvc_npsform{
+   margin: 10PX;
+   font-family: Georgia, Times, "Times New Roman", serif;
+   text-align: center;
+}
+#tvc_detractor{
+ /* width: 51%; */
+margin: 10PX;
+font-family: Georgia, Times, "Times New Roman", serif;
+    text-align: center;
+}
+#tvc_passive{
+    margin: 10PX;
+    text-align: center;
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+#tvc_promoter{
+    margin: 10PX;
+    text-align: center;
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+p#qstn{
+font-family: Arial,Helvetica,sans-serif;
+
+}
+div#rec_bar {
+    margin-bottom: 10px;
+    font-family: Arial,Helvetica,sans-serif;
+    color: grey;
+    font-size: 15px;
+  }
+  p.tvc_scorenum {
+    display: inline;
+    padding-left: 20px;
+    margin-right: 32px;
+    color: lightgray;
+    font-weight: 900;
+}
+div#number {
+    margin-top: 10px;
+    margin-bottom: 4%;
+}
+p#qstn {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    text-align: -webkit-center;
+}
+p.tvc_scorenum {
+    display: inline;
+    padding-left: 3.5%;
+    margin-right: 3.85%;    color: lightgray;
+    font-weight: 900;
+}
+
+.enjoy-css-par{
+  margin: 20px;
+}
+.enjoy-css {
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  outline: 0;
+  padding: 2px 3rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+/*  width: 15%;*/
+  height: 34px;
+  cursor: pointer;
+  margin: 2% auto;
+  font: normal 16px/35px "Advent Pro", sans-serif;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #4285f4;
+      
+}
+
+.enjoy-css:hover {
+  color: #fff;
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,0.32),0 4px 15px 0 rgba(0,0,0,0.30);
+  background-color: rgb(83, 142, 241);
+}
+
+.enjoy-css:active {
+  color: #fff;
+  box-shadow: 0 1px 11px 0 rgba(0,0,0,0.32),0 1px 15px 0 rgba(0,0,0,0.30);
+}
+
+.waves-effect {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    will-change: opacity, transform;
+    transition: all .3s ease-out;
+}
+
+
+
+input[type="text"] {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: 45px;
+  line-height: 45px;  
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,.4);
+   font-family: Arial,Helvetica,sans-serif;
+}
+
+
+[type='text']:focus {
+  outline: none;
+  border-color: #53CACE;
+}
+textarea.tvc_feedback{
+ 
+  display: block;
+    margin: 8% auto;
+    width: 80%;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    height: 75px;
+    /* line-height: 51px; */
+    margin-bottom: 10px;
+    /* font-size: 1em; */
+    color: rgba(0,0,0,.4);
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+}
+.btn-close img {
+    height: 15px;
+    float: right;
+    margin: 1%;
+}
+.modal:target:before {
+            display: none;
+        }
+        .modal:before {
+            content:"";
+            display: block;
+            background: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+        }
+        .modal .modal-dialog {
+            background: #fefefe;
+            border: #333333 solid 1px;
+            border-radius: 5px;
+            margin-left: -200px;
+            position: fixed;
+            left: 35%;
+            z-index: 11;
+            width: 60%;
+            -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+            -webkit-transition: -webkit-transform 0.3s ease-out;
+            -moz-transition: -moz-transform 0.3s ease-out;
+            -o-transition: -o-transform 0.3s ease-out;
+            transition: transform 0.3s ease-out;
+            top: 20%;
+        }
+        .modal:target .modal-dialog {
+            top: -100%;
+            -webkit-transform: translate(0, -500%);
+            -ms-transform: translate(0, -500%);
+            transform: translate(0, -500%);
+        }
+        .modal-body {
+            padding: 20px;
+        }
+
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(0, 0, 0, 0.8);
+          transition: opacity 500ms;
+          visibility: hidden;
+          opacity: 0;
+          z-index: 12;
+      }
+      .overlay:target {
+          visibility: visible;
+          opacity: 1;
+      }
+
+      .popup {
+
+          background: #fff;
+          border-radius: 1%;
+          width: 58%;
+          z-index: 13;
+          transition: all 5s ease-in-out;
+          /*  margin-left: -40%; */
+          position: fixed;
+          left: 21%;
+          top:15%;
+      }
+      .smiley > span {
+        width: 100%;
+        margin-top: 103%;
+        font-size: 1em;
+        color: #C3C3C3;
+      }
+
+      label > input:checked + div.sad>span {
+        color: #ED1C24;
+      }
+      label > input:checked + div.smile>span {
+        color: #FFD400;
+      }
+            label > input:checked + div.happy>span {
+        color: #4DC158;
+      }
+</style>
+</head>
+<body>
+
+    <div class="modal" id="modal-one">
+      
+       <div class="modal-dialog">
+
+        <div id="tvc_npsform">
+          <div class="modal-header">
+              <a class="btn-close" href="#modal-one " ><img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/close.png"></a>
+          </div>
+    
+    <img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/tvc_slogo.png" style="margin-top: 15px;margin-bottom: 15px;">
+    
+    <p id="qstn" >How likely is it that you would recommend</p><p id="qstn"> our service to a friend?</p>
+    
+    <div id="rec_bar"> <span>Not likely</span><span style="margin-left:70%;">Very Likely</span> </div>
+ 
+ <label>
+    <input id="tvc_nps0" type="radio" name="tvc_nps" value="0" />
+    <div class="smiley sad"><span>0</span></div>
+  </label>
+
+  <label>
+    <input id="tvc_nps1" type="radio" name="tvc_nps" value="1" />
+     <div class="smiley sad"><span>1</span></div>
+ </label>
+  
+  <label>
+    <input id="tvc_nps2" type="radio" name="tvc_nps" value="2"/>
+    <div class="smiley sad"><span>2</span></div>
+  </label>
+  
+  <label>
+    <input id="tvc_nps3" type="radio" name="tvc_nps" value="3" />
+    <div class="smiley sad"><span>3</span></div>
+  </label>
+  
+  <label>
+    <input id="tvc_nps4" type="radio" name="tvc_nps" value="4" />
+    <div class="smiley sad"><span>4</span></div>
+  </label>
+  <label>
+    <input id="tvc_nps5" type="radio" name="tvc_nps" value="5" />
+    <div class="smiley sad"><span>5</span></div>
+  </label>
+  
+  <label>
+   <input id="tvc_nps6" type="radio" name="tvc_nps" value="6"/>
+   <div class="smiley sad"><span>6</span></div>
+  </label>
+  
+  <label>
+    <input id="tvc_nps7" type="radio" name="tvc_nps" value="7" />
+     <!-- <img src="smile.png"> -->
+     <div class="smiley smile"><span>7</span></div>
+  </label>
+  
+  <label>
+    <input id="tvc_nps8" type="radio" name="tvc_nps" value="8" />
+     <!-- <img src="smile.png"> -->
+     <div class="smiley smile"><span>8</span></div>
+  </label>
+<label>
+    <input id="tvc_nps9" type="radio" name="tvc_nps" value="9" />
+
+    <div class="smiley happy"><span>9</span></div>
+  </label>
+  
+  <label>
+    <input id="tvc_nps10" type="radio" name="tvc_nps" value="10"/>
+
+    <div class="smiley happy"><span>10</span></div>
+  </label>
+  <!-- 
+    <div id="number">
+        <p class="tvc_scorenum">0</p>
+        <p class="tvc_scorenum">1</p>
+        <p class="tvc_scorenum">2</p>
+        <p class="tvc_scorenum">3</p>
+        <p class="tvc_scorenum">4</p>
+        <p class="tvc_scorenum">5</p>
+        <p class="tvc_scorenum">6</p>
+        <p class="tvc_scorenum">7</p>
+        <p class="tvc_scorenum">8</p>
+        <p class="tvc_scorenum">9</p>
+        <p class="tvc_scorenum">10</p>
+
+    </div> -->
+    <div class="enjoy-css-par"><a class="waves-effect enjoy-css" href="#popup1" onclick=" return submit_nps()" > submit</a></div>
+</div>
+</div>
+</div>
+
+
+<div id="popup1" class="overlay">
+    <div class="popup">
+        <div class="modal-header">
+            <a class="btn-close" href="#modal-one" ><img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/close.png"></a>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function submit_nps(){
+        var tvc_nps_score = document.getElementsByName("tvc_nps");
+        for (i=0;i<tvc_nps_score.length;i++){
+            if(tvc_nps_score[i].checked){
+                console.log(typeof(tvc_nps_score[i].value));
+                var tvc_rating = parseInt(tvc_nps_score[i].value);
+
+              
+       
+       dataLayer.push({
+        'event' : 'tvc_nps_SubmitClicked',
+        'tvc_score': tvc_rating
+      });
+                  if(tvc_rating >= 0 && tvc_rating < 7){
+
+                        jQuery('.popup').append('<div id="tvc_detractor"><img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/tvc_slogo.png" style="margin-top: 15px;margin-bottom: 15px;"><p id="qstn">We apologize for that!</p><p style="font-family: Arial,Helvetica,sans-serif;font-size: 14px;color: gray;">Please let us know how can we make up for the bad experience.</p><input type="text" placeholder="your email address" id="tvc_mail" ><textarea class="tvc_feedback" placeholder="your experice and feedback"></textarea><div class="enjoy-css-par"><a class="waves-effect enjoy-css" href="#popup1" onclick=" return submit_nps()" > submit</a></div></div>');
+
+                  }else if(tvc_rating == 7 || tvc_rating == 8){
+                          jQuery('.popup').css("top","8%");
+                          jQuery('.popup').append('  <div id="tvc_passive"><img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/tvc_slogo.png" style="margin-top: 15px;margin-bottom: 15px;"><p id="qstn" style="margin-bottom: 14px;">Congratulations! You have just gone <b>#antijugaad</b> with sulekha!</p><iframe width="600" height="400" src="http://www.youtube.com/embed/p2A4WLeoxcc?autoplay=0"></iframe></div> '); 
+
+
+                  }else if(tvc_rating >7 && tvc_rating <= 10){
+                        //jQuery('.popup').css("width","50%");
+                        jQuery('.popup').append(' <div id="tvc_promoter"><img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/tvc_slogo.png" style="margin-top: 15px;margin-bottom: 15px;"><p id="qstn">Thank you for your feedback!</p><p style="font-family: Arial,Helvetica,sans-serif;font-size: 14px;color: gray;margin-bottom: 4px;">You feedback will help us improve our services</p><p style="font-family: Arial,Helvetica,sans-serif;font-size: 14px;color: gray;margin-top:1px;">to get you job done even better</p><img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/happyc.png" style="margin-top: 15px;margin-bottom: 15px;"><p id="qstn">Spread the word!</p><div id="tvc_social"><a  id="tvc_twitter" href="https://twitter.com/intent/tweet?text=%20Hey%2C%20I%20just%20went%20%23AntiJugaad%20with%20Sulekha.%20Have%20you%20%3F&via=Sulekhadotcom&url=https%3A%2F%2Fantijugaad.sulekha.com" target="_blank"><img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/twtr.png"></a><a href="http://www.facebook.com/sharer.php?u=www.facebook.com/Sulekhadotcom" target="_blank"><img src="http://d2blwevgjs7yom.cloudfront.net/npssulekhaimage/fb.png"></a></div></div>');
+
+                  }else{
+                    jQuery('.popup').append(' <div id="tvc_detractor"><p id="qstn" >Thank You. </p></div>');
+                  }
+                return true;
+            }
+        }
+        return false;    
+
+    }
+
+    function tvc_userInput(){
+      var tvc_mail = jQuery('input#tvc_mail').val();
+      var tvc_feedback = jQuery('textarea.tvc_feedback').val();
+
+       dataLayer.push({
+        'event' : 'tvc_nps_feedbackSubmit',
+        'tvc_mail': tvc_mail,
+        'tvc_feedback' :tvc_feedback
+      });
+ 
+
+    }
+
+
+
+</script>
+<script>
+jQuery(document).ready(function(){
+
+//when user clicks on any of score
+jQuery("#tvc_npsform img").bind('click', function(){
+       
+       dataLayer.push({
+        'event' : 'tvc_nps_scoreClicked'
+      });
+    });
+
+//When user clicks close button
+jQuery("a.btn-close").bind('click', function(){
+       
+       dataLayer.push({
+        'event' : 'tvc_nps_PopUpClosed'
+      });
+    });
+
+//when user click fb button
+jQuery('.fb-share-button img').bind('click', function() { 
+ dataLayer.push({
+        'event' : 'tvc_nps_facebookclick'
+      });
+
+ });
+
+ //when user clicks on twitter button
+ jQuery('#tvc_twitter img').bind('click', function() { 
+ dataLayer.push({
+        'event' : 'tvc_nps_Twitterclick'
+      });
+
+ });
+
+
+
+
+ });
+</script>
+</body>
+
+</html>

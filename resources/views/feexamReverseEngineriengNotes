@@ -1,0 +1,10 @@
+css classes
+			fexam_bg fexam_text
+			fe_line1 fe_line2
+			fexam_bg
+			fexam_grade_spacer
+			fexam_grade fexam_grade_bg
+			fexam_footerwrap
+Js function
+			fexam_rvote(0)
+			onclick="fexam_openPopup('http://fanexam.com/?utm_medium=referral&amp;utm_campaign=survey_link&amp;utm_term=5496&amp;utm_source='+encodeURIComponent($FE.referrer),1000,720,'FanExam');return false"

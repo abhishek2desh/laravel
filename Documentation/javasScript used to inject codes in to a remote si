@@ -1,0 +1,40 @@
+javasScript used to inject codes in to a remote site with help of cdn based delevery network
+
+this explaination is based on the study of implementation methedology used and practiced by www.fanexam.com which is currently provideing NPS tool to its clients.
+
+Defining the problem:"??how sould u embbed the NPS survey on a third party server whithout Access to its server side scripts ???"
+
+to over come this problem we would use java script / client side scripts to full fill our goal of embeddeding the NPS survey on client site without touching /accesing their server side scripts.
+
+a small scripts is embbeded on their site by them in side the <body>..</body> tag.
+						
+						$FE = {id:5496}; 
+						$FE.email = ""; 
+						$FE.tags = ""; // tags go in these quotes separated by commas 
+						$FE.lang = "en-us"; // language + locale to be used 
+						(function(d) { 
+						    var ca = d.createElement("script"),t; 
+						    ca.type = "text/javascript"; 
+						    ca.async = true; 
+						    ca.src = "//tag.fanexam.com/exam.js"; 
+						    t = d.getElementsByTagName("script")[0]; //find all the script tag, go to the first script tag
+						    t.parentNode.insertBefore(ca, t); //find its parrent and add the new tag before the first script tag
+						})(document);  
+
+the above tag has a object {**citation neeeded for $FE**} it holds the clients unique ID here 5496, rest are some additional variables . this script exewcutes a anonymous function to wich it sends current Document as a variable object.
+this function creates a <script> tag dynamicaly attaches src to exam.js and appends at the  start of the <head> tag.
+
+						//exam.js
+							(function(d) {
+								var fe = d.createElement("script"),t;
+								fe.type = "text/javascript";
+								fe.async = true;
+								if ($FE.cache)
+									fe.src = "//tag.fanexam.com/js/" + $FE.id + ".js?" + Math.random();
+								else
+									fe.src = "//tag.fanexam.com/js/" + $FE.id + ".js";//user customized js file , containing all settings , 
+								t = d.getElementsByTagName("script")[0]; //design variables and all document variables.
+								t.parentNode.insertBefore(fe, t);//attach a new script tag before the first one.
+							})(document);
+
+							
