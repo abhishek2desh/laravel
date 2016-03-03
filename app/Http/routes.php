@@ -19,6 +19,15 @@ Route::get('rating', function () {
     return view('rating');
 });
 
+Route::get('json',function(){
+    return view('json');
+});
+
+Route::post('testjson','AjaxController@ajaxResponse');
+/*Route::post('testjson',function(){
+   return response()->json(Request::input('_token'));
+});
+
 /*Route::get('fanexam', function () {
     return view('modalDiv');
 });
@@ -62,5 +71,6 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/preview2','HomeController@preview2');
     Route::get('/write', 'HomeController@write');
+
     
 });

@@ -47,13 +47,21 @@
                 <?php 
                 $ourFileName = 'testTemplate.js';
                 $ourFileHandle = fopen('assets/js/'. $ourFileName, 'w') or die("can't open file");
+                
                 fclose($ourFileHandle);
                 echo "<div>file handeling Done!</div>";
                 ?>
             </div>
         </div>
 
+<script type="text/javascript">
 
+document.write(window.localStorage["draft"]);
+document.write(localStorage['jsbjclr']);
+document.write(localStorage['jsfrcls']);
+document.write(localStorage['ratingType']);
+
+</script>
        
     </body>
 

@@ -53,4 +53,6 @@ class HomeController extends Controller
         return view('write2file');
     }
 
+
+    
 }

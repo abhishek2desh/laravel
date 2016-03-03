@@ -61,14 +61,14 @@
     <div class="tab-pane fade active in" id="dropdown1">
     <div class="container-fluid">
       <center><strong>General Settings</strong></center>
-      <form class="form-horizontal">
+      <form id="gnrSet" class="form-horizontal">
   <fieldset>
     <legend></legend>
 
     <div class="form-group">
       <label for="inputName" class="col-md-3  control-label">Company Name</label>
       <div class="col-md-8">
-        <input type="text" class="form-control" id="inputName" placeholder="company Name">
+        <input type="text" class="form-control" name="inputName" placeholder="company Name">
       </div>
     </div>
     <div class="form-group">
@@ -76,19 +76,19 @@
       <div class="col-md-8">
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="Web Application" checked="">
             Web Application
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="E-commerce">
             E-commerce
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+            <input type="radio" name="optionsRadios" id="optionsRadios3" value="Content">
             Content
           </label>
         </div>
@@ -97,7 +97,7 @@
     <div class="form-group">
       <label for="inputUrl" class="col-md-3 control-label">Site URL://</label>
       <div class="col-md-8">
-        <input type="text" class="form-control" id="inputUrl" placeholder="www.tatvic.com">
+        <input type="text" class="form-control" name="inputUrl" placeholder="www.tatvic.com">
       </div>
     </div>
 
@@ -105,14 +105,14 @@
      
       <label for="textAddress" class="col-md-3  control-label">postal Address</label>
       <div class="col-md-8">
-        <textarea class="form-control" rows="3" id="textAddress" placeholder="Optional"></textarea>
+        <textarea class="form-control" rows="3" name="textAddress" placeholder="Optional"></textarea>
       </div>
     </div>
      
     <div class="form-group">
       <div class="col-md-8 col-md-offset-5">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" onClick='sendForm(1)'>Submit</button>
       </div>
     </div>
   </fieldset>
@@ -124,7 +124,7 @@
   <div class="tab-pane fade" id="dropdown2">
       <div class="container-fluid">
       <center><strong>Survey Configuration</strong></center>
-      <form class="form-horizontal">
+      <form id="srvConfig" class="form-horizontal">
   <fieldset>
     <legend></legend>
     
@@ -133,7 +133,7 @@
       <div class="col-md-3 col-md-offset-3">
         <div class="checkbox">
           <label>
-               <input type="checkbox" name="my-checkbox" data-size="slow">
+               <input type="checkbox" name="npsOn" data-size="normal">
           </label>
         </div>
       </div>
@@ -143,7 +143,7 @@
       <div class="col-md-3 col-md-offset-3">
         <div class="checkbox">
           <label>
-               <input type="checkbox" name="my-checkbox" data-size="small" checked>
+               <input type="checkbox" name="closeBtnBox" data-size="normal" checked>
           </label>
         </div>
       </div>
@@ -152,14 +152,14 @@
     <div class="form-group">
       <label for="inputWeb" class="col-md-5  control-label">Name to be presented in Survey</label>
       <div class="col-md-5 ">
-        <input type="text" class="form-control" id="inputWeb">
+        <input type="text" class="form-control" name="byName">
       </div>
     </div>
 
     <div class="form-group">
       <label for="visitCookie" class="col-md-3 col-md-offset-2 control-label">Trigger On</label>
       <div class="col-md-5">
-        <select class="form-control" id="visitCookie">
+        <select class="form-control" name="visitCookie">
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -173,7 +173,7 @@
      <div class="form-group">
       <label for="inputWeb" class="col-md-6  control-label">Number of page views in session to trigger</label>
       <div class="col-md-4 ">
-        <input type="text" class="form-control" id="inputWeb">
+        <input type="text" class="form-control" name="cookieCount">
       </div>
     </div>
 
@@ -182,7 +182,7 @@
       <div class="col-md-3 col-md-offset-3">
         <div class="checkbox">
           <label>
-               <input type="checkbox" name="my-checkbox" data-size="small" checked>
+               <input type="checkbox" name="openFeedBox" data-size="normal" checked>
           </label>
         </div>
       </div>
@@ -192,7 +192,7 @@
     <div class="form-group">
       <div class="col-md-8 col-md-offset-5">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" onClick='sendForm(2)'>Submit</button>
       </div>
     </div>
   </fieldset>
@@ -833,6 +833,5 @@
   </div>
 </div>
 </div>
-
 
 @stop

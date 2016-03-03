@@ -40,6 +40,7 @@
         
      
      <script src="{{URL::asset('assets/js/star-rating.js')}}" type="text/javascript"></script>
+     <script src="{{URL::asset('user.js')}}" type="text/javascript"></script>
     </head>
     <body>
              

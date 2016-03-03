@@ -9,6 +9,7 @@
         <link href="{{URL::asset('assets/css/bootstrap-switch.css')}}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/styles/desert.css">
      <link rel="stylesheet" href="{{URL::asset('assets/css/star-rating.css')}}"  type="text/css">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <style type="text/css">
 
 
@@ -397,17 +398,21 @@ document.getElementsByTagName('head')[0].appendChild(style);
          
         }
         $(document).ready(function(){
-         $("[name='my-checkbox']").bootstrapSwitch(); 
+         $("[name='npsOn']").bootstrapSwitch(); 
+         $("[name='closeBtnBox']").bootstrapSwitch(); 
+         $("[name='openFeedBox']").bootstrapSwitch(); 
+         
         });
          
     function setRatings(value)
-{
-  alert(value);
+{ var key="ratingType";
+localStorage[key]=value;
+
+//  alert(value);
   if (value==null)
   {}
 else if(value=='1')
   {$('#boxb').append('<form class="container-fluid"><div id="rec_bar"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" value="0" type="number" class="rating" min=0 max=11 step=1 data-size="md" data-stars="11"><div id="rec_bar"> <span>Not likely</span><span style="margin-left:70%;">Very Likely</span> </div></form><center><button class="btn btn-info">Submit</button></center>');
- 
   $("#tvc_rating").rating();
   }
 else if(value=='2')
@@ -420,8 +425,9 @@ else if(value=='2')
 
 function setRatingSize(value)
 {
-
-alert(value);
+ var key="ratingSize";
+localStorage[key]=value;
+//alert(value);
   if (value==null)
   {}
 else if(value=="xl")
@@ -433,7 +439,7 @@ else if(value=="xl")
   }
 else if(value=="lg")
   {
- $("#tvc_rating").rating({size:'lg'});
+    $("#tvc_rating").rating({size:'lg'});
   }
   else if(value=="md")
   {
@@ -702,23 +708,40 @@ $('#page4').attr("contentEditable","true");
 }
 
 function saveDesignDb(){
+$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+   /*$(document).ready(function() {
+                 
+                      $.post( 
+                         "{!! URL::to('testjson') !!}",
+                         { _token: $('meta[name="csrf_token"]').attr('content'),body: localStorage['draft']},
+                         function(data) {
+                            console.log(data);
+                         }
+                      );
+                  
+               });*/
 
-  /*  contentEl = document.getElementById("boxb");
-    var arr = { City: 'Moscow', Age: 25 };
-$.ajax({
-    url: 'Ajax.ashx',
-    type: 'POST',
-    data: JSON.stringify(arr),
-    contentType: 'application/json; charset=utf-8',
-    dataType: 'json',
-    async: false,
-    success: function(msg) {
-        alert(msg);
-    }
-});
-*/
+  $(document).ready(function() {
+  $body=Base64.encode(localStorage['draft']);
+    $.ajax ({
+    url:  "{!! URL::to('testjson') !!}",
+    type: "POST",
+    data: { _token: $('meta[name="csrf_token"]').attr('content'),body:localStorage['draft'],body2:localStorage['jsbkclr']},
+    cache: false,
+    dataType: "json",
+    success: function(data){
+      $body=Base64.decode(data.body);
     
+        console.log($body);
+        console.log(data.body2);
+    }
+});  
+}); 
   
 }
 
@@ -742,7 +765,7 @@ $(document).ready(function(){
               $(".rating-container").remove();
               $("#rec_bar").remove();
               $("#rec_bar").remove();
-             setRatings()
+             //setRatings();
               $("#tvc_rating").rating();
               
             }
@@ -782,7 +805,47 @@ function resetDesign(){
   localStorage.clear("draft");
  location.reload();
   //alert("cache cleared");
+
+
 }
+
+
+function sendForm(value)
+{
+
+switch(value){
+
+  case 1://general setting form 
+        alert(value);
+        $.ajax ({
+      url:  "{!! URL::to('testjson') !!}",
+      type: "POST",
+      data: $('#gnrSet').serialize(),
+      cache: false,
+      dataType: "json",
+      success: function(data){
+   
+         
+        console.log(data);
+    }
+    });
+      break;
+  case 2:alert(value);
+     $.ajax ({
+      url:  "{!! URL::to('testjson') !!}",
+      type: "POST",
+      data: $('#srvConfig').serialize(),
+      cache: false,
+      dataType: "json",
+      success: function(data){
+   
+         
+        console.log(data);
+    }
+    });
+  }
+}
+
  </script>
    <script>//<![CDATA[
 (function () {
