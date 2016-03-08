@@ -6,6 +6,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
          <link rel="stylesheet" href="{{URL::asset('assets/css/star-rating.css')}}"  type="text/css">
+           <link rel="stylesheet" href="{{URL::asset('assets/css/theme-krajee-svg.css')}}"  type="text/css">
      
         <style>
             html, body {
@@ -40,7 +41,8 @@
         
      
      <script src="{{URL::asset('assets/js/star-rating.js')}}" type="text/javascript"></script>
-     <script src="{{URL::asset('user.js')}}" type="text/javascript"></script>
+     
+    <script src='http://localhost:8013/laranew/public/assets/tags/abhishek2desh.js' async='true' type='text/javascript'></script>
     </head>
     <body>
              
@@ -55,34 +57,228 @@
 
         <script type="text/javascript">
         
-        $(document).ready(function(){
-
-        var key=new Array("draft","pophight","popwidth","jsbkclr","jsfrclr");
-          
-          if(localStorage[key[0]]==null)
-            {}
-            else
-           { $('head').append("<style> .title {font-size: 96px;} .modalDialog {position: fixed; font-family: Arial, Helvetica, sans-serif; display:none;top: 0;right: 0; bottom: 0; left: 0;background: rgba(0,0,0,0);z-index: 99999;opacity:0;-webkit-transition: opacity 400ms ease-in;-moz-transition: opacity 400ms ease-in;transition: opacity 400ms ease-in;pointer-events:none;}.modalDialog:target{opacity:1;pointer-events: auto;}.modalDialog > div {width: 720px; height: 325px;position: relative;margin: 10% auto; padding: 5px 20px 13px 20px; border-radius: 10px;background: #FFFFFF;border: 1px;border-style:solid; box-shadow:10px 10px 15px #888888;}.close {z-index: 99999;background: #606061;color: #FFFFFF;line-height: 25px;position: absolute;right: -12px;text-align: center;top: -10px;width: 24px;text-decoration: none;font-weight: bold;-webkit-border-radius: 12px;-moz-border-radius: 12px;border-radius: 12px;-moz-box-shadow: 1px 1px 3px #000;-webkit-box-shadow: 1px 1px 3px #000;box-shadow: 1px 1px 3px #000;}.close:hover { background: #000;}.popTitle {text-align: center;}.container{ margin: auto;width: 60%;padding: 10px;}p{text-align:center;line-height: .5em;}</style>");
-              $('head').append('<style type="text/css">#boxb {width:'+localStorage[key[2]]+'px; height:'+localStorage[key[1]]+'px;background:#'+localStorage[key[3]]+' ;color:#'+localStorage[key[4]]+';}</style');
-
-              $('body').append('<div id="openModal" class="modalDialog" >' + localStorage[key[0]] + '</div>');
-              
-             $(document).ready(function(){
-              setTimeout(function(){$(' .modalDialog ').css("opacity",1);$(' .modalDialog ').css("pointer-events",'auto');$(' .modalDialog ').show();},3000);
-              
-                });       
-         }
-          $('.close').click(function(){$(' .modalDialog ').css("opacity",0);$(' .modalDialog ').css("display",'none');});
-          $('.tvc_promoter').click(function(){$('#boxb').hide();$('#page4').show();});
-          $('.tvc_passive').click(function(){$('#boxb').hide();$('#page3').show();});
-           $('.tvc_detractors').click(function(){$('#boxb').hide();$('#page2').show();});
-          // $('.rating-container').remove()
-     $('#tvc_rating').rating('refresh');
-       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'lg'});
-       
       
-        });
 
+
+
+  function setRatings(value)
+{ var key="ratingType";
+value= parseInt(value);
+localStorage['ratingTypeInt']=value;
+//  alert(value);
+
+  if (value==null)
+  {}
+else if(value==1)
+  {$('#rating').remove();
+    localStorage[key]='<form id="rating" class="container-fluid"><div id="rec_bar1"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" value="0" type="number" class="rating" min=0 max=11 step=1 data-size="md" data-stars="11"><div id="rec_bar"> <span>Not likely</span><span id="likely" style="margin-left:80%;">Very Likely</span> </div><br/><center><button class="btn btn-info">Submit</button></center></form>';
+ 
+$('#boxb').append(localStorage[key]);
+  $("#tvc_rating").rating();
+   }
+else if(value==2)
+  {$('#rating').remove();
+   localStorage[key]='<form id="rating" class="container-fluid"><div id="rec_bar1"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" type="number" class="kv-ltr-theme-svg-alt rating-loading" value="0" dir="ltr" data-size="md" min=0 max=11 step=1 data-stars="11"><div id="rec_bar"> <span>Not likely</span><span id="likely" style="margin-left:80%;">Very Likely</span> </div><br/><center><button class="btn btn-info">Submit</button></center></form>';
+
+    $('#boxb').append(localStorage[key]);
+    $('#tvc_rating').rating({
+        hoverOnClear: false,
+        theme: 'krajee-svg',
+        containerClass: 'is-heart',
+        filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+        emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+        defaultCaption: '{rating} hearts',
+        starCaptions: function (rating) {
+            return rating == 1 ? 'One heart' : rating + ' hearts';
+        }
+    });
+  }
+
+  $('#tvc_rating').on('rating.change', function(event, value, caption) {
+    console.log(value-1);
+    console.log(caption);
+});
+   
+}
+
+
+function setRatingSize(value)
+{
+ var key="ratingSize";
+localStorage[key]=value;
+//alert(value);
+if(parseInt(localStorage['ratingTypeInt'])==1)
+{
+      if (value==null)
+      {}
+    else if(value=="xl")
+      {
+     
+      $('#rec_bar1 >span').css('margin-left','66px');
+      $('#rec_bar1 >span:first').css('margin-left','30px');
+       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'xl'});
+       document.getElementById('boxb').style.width =890+'px';
+       document.getElementById('boxb').style.height =360+'px';
+        document.getElementById('likely').style.marginLeft =83+'%';
+        
+      }
+    else if(value=="lg")
+      {$('#rec_bar1 >span').css('margin-left','53px');
+     $('#rec_bar1 >span:first').css('margin-left','20px');
+       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'lg'});
+       document.getElementById('boxb').style.width =750+'px';
+        document.getElementById('boxb').style.height =340+'px';
+        document.getElementById('likely').style.marginLeft =80+'%';
+        
+      }
+      else if(value=="md")
+      {$('#rec_bar1 >span').css('margin-left','42px');
+     $('#rec_bar1 >span:first').css('margin-left','17px');
+        $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'md'});
+        document.getElementById('boxb').style.width =630+'px';
+         document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('likely').style.marginLeft =75+'%';
+      
+      }
+      else if(value=="sm")
+      {$('#rec_bar1 >span').css('margin-left','33px');
+     $('#rec_bar1 >span:first').css('margin-left','13px');
+       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'sm'});
+       document.getElementById('boxb').style.width =550+'px';
+         document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('likely').style.marginLeft =70+'%';
+        
+      }
+       else if(value=="xs")
+      {$('#rec_bar1 >span').css('margin-left','26px');
+     $('#rec_bar1 >span:first').css('margin-left','10px');
+       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'xs'});
+       document.getElementById('boxb').style.width =450+'px';
+         document.getElementById('boxb').style.height =320+'px';
+        document.getElementById('likely').style.marginLeft =65+'%';
+        
+      }
+
+    }
+  else if(parseInt(localStorage['ratingTypeInt'])==2)
+  {
+     if (value==null)
+      {}
+    else if(value=="xl")
+      {
+     
+      $('#rec_bar1 >span').css('margin-left','66px');
+      $('#rec_bar1 >span:first').css('margin-left','32px');
+       $('#tvc_rating').rating('create',{
+        hoverOnClear: false,
+        theme: 'krajee-svg',
+        containerClass: 'is-heart',
+        filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+        emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+        defaultCaption: '{rating} hearts',
+        size:'xl',
+        stars:11,
+        starCaptions: function (rating) {
+            return rating == 1 ? 'One heart' : rating + ' hearts';
+        }
+    });
+       document.getElementById('boxb').style.width =900+'px';
+       document.getElementById('boxb').style.height =360+'px';
+        document.getElementById('likely').style.marginLeft =83+'%';
+        
+      }
+    else if(value=="lg")
+      {
+        $('#rec_bar1 >span').css('margin-left','53px');
+        $('#rec_bar1 >span:first').css('margin-left','22px');
+        $('#tvc_rating').rating('create',{
+            hoverOnClear: false,
+            theme: 'krajee-svg',
+            containerClass: 'is-heart',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            size:'lg',
+            stars:11,
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            }
+        });
+       document.getElementById('boxb').style.width =750+'px';
+        document.getElementById('boxb').style.height =340+'px';
+        document.getElementById('likely').style.marginLeft =80+'%';
+        
+      }
+      else if(value=="md")
+      {
+        $('#rec_bar1 >span').css('margin-left','39px');
+        $('#rec_bar1 >span:first').css('margin-left','17px');
+        $('#tvc_rating').rating('create',{
+            hoverOnClear: false,
+            theme: 'krajee-svg',
+            containerClass: 'is-heart',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            size:'md',
+            stars:11,
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            }
+        });
+        document.getElementById('boxb').style.width =630+'px';
+        document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('likely').style.marginLeft =75+'%';
+      
+      }
+      else if(value=="sm")
+      {
+        $('#rec_bar1 >span').css('margin-left','32px');
+        $('#rec_bar1 >span:first').css('margin-left','14px');
+        $('#tvc_rating').rating('create',{
+            hoverOnClear: false,
+            theme: 'krajee-svg',
+            containerClass: 'is-heart',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            size:'sm',
+            stars:11,
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            }
+        });
+        document.getElementById('boxb').style.width =550+'px';
+        document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('likely').style.marginLeft =70+'%';
+        
+      }
+       else if(value=="xs")
+      {
+        $('#rec_bar1 >span').css('margin-left','23px');
+        $('#rec_bar1 >span:first').css('margin-left','12px');
+                $('#tvc_rating').rating('create',{
+            hoverOnClear: false,
+            theme: 'krajee-svg',
+            containerClass: 'is-heart',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            size:'xs',
+            stars:11,
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            }
+        });
+        document.getElementById('boxb').style.width =450+'px';
+        document.getElementById('boxb').style.height =320+'px';
+        document.getElementById('likely').style.marginLeft =65+'%';
+        
+      }
+
+  }
+
+}
        </script>
     </body>
 

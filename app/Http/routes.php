@@ -23,7 +23,8 @@ Route::get('json',function(){
     return view('json');
 });
 
-Route::post('testjson','AjaxController@ajaxResponse');
+
+
 /*Route::post('testjson',function(){
    return response()->json(Request::input('_token'));
 });
@@ -64,13 +65,19 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
     
     Route::get('/home', 'HomeController@index');
-    route::get('test','HomeController@test');
+    route::get('dashboard','HomeController@test');
     Route::get('contact','HomeController@contact');
     Route::get('share','HomeController@share');
     Route::get('preview','HomeController@preview');
 
     Route::get('/preview2','HomeController@preview2');
     Route::get('/write', 'HomeController@write');
+    Route::post('testjson','AjaxController@ajaxResponse');
 
+    Route::post('createjs','AjaxController@jsCreator');
+
+    Route::get('Embedcode',function(){
+    return view('embedcode');
+    });
     
 });

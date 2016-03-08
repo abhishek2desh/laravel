@@ -1,1 +1,0 @@
-var $tvc={};$tvc.cmpName="23424";$tvc.webType="E-commerce";$tvc.targetUrl="234234234234";$tvc.webType="werewsrewrewr";

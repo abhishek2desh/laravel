@@ -9,10 +9,18 @@
         <link href="{{URL::asset('assets/css/bootstrap-switch.css')}}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/styles/desert.css">
      <link rel="stylesheet" href="{{URL::asset('assets/css/star-rating.css')}}"  type="text/css">
+     <link rel="stylesheet" href="{{URL::asset('assets/css/theme-krajee-svg.css')}}"  type="text/css">
+     
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <style type="text/css">
 
+.fontEdit{
+top:50px;
+  width:200px;
+  height:10px;
 
+
+}
 
 
 .label-as-badge {
@@ -43,12 +51,54 @@
             .modalDialog:target {
                
             }
-
-            #boxb {
-               width: 700px;
+            #page2{
+             width: 720px;
                height: 325px;
              position: relative;
                /*margin: 10% auto;*/
+               padding: 5px 20px 13px 20px;
+               border-radius: 10px;
+               background: #FFFFFF;
+               border: 1px;
+               border-style:solid;
+               box-shadow:10px 10px 15px #888888; 
+                z-index: 99999;
+
+            }
+            #page3{
+              width: 720px;
+               height: 325px;
+             position: relative;
+              /* margin: 10% auto;*/
+               padding: 5px 20px 13px 20px;
+               border-radius: 10px;
+               background: #FFFFFF;
+               border: 1px;
+               border-style:solid;
+               box-shadow:10px 10px 15px #888888; 
+                z-index: 99999;
+            }
+
+            #page4{
+
+             width: 720px;
+               height: 325px;
+             position: relative;
+              /* margin: 10% auto;*/
+               padding: 5px 20px 13px 20px;
+               border-radius: 10px;
+               background: #FFFFFF;
+               border: 1px;
+               border-style:solid;
+               box-shadow:10px 10px 15px #888888; 
+                z-index: 99999;
+            }
+
+            #boxb {
+               width: 720px;
+               height: 325px;
+             position: relative;
+              /* margin: 10% auto;*/
                padding: 5px 20px 13px 20px;
                border-radius: 10px;
                background: #FFFFFF;
@@ -64,7 +114,23 @@
             
             .close:hover { 
               background-color: #fff;}
-
+            .close {z-index: 99999;
+              background: #606061;
+              color: #FFFFFF;
+              line-height: 25px;
+              position: absolute;
+              right: -12px;
+              text-align: center;
+              top: -10px;
+              width: 24px;
+              text-decoration: none;
+              font-weight: bold;
+              -webkit-border-radius: 12px;
+              -moz-border-radius: 12px;
+              border-radius: 12px;
+              -moz-box-shadow: 1px 1px 3px #000;
+              -webkit-box-shadow: 1px 1px 3px #000;
+              box-shadow: 1px 1px 3px #000;}
             
              
             .popTitle {
@@ -85,8 +151,8 @@ code {
   float:top;
 }
  .ScrollStyle{
-    max-height: 900px;
-    overflow-y: scroll;
+    /*max-height: 900px;
+    overflow-y: scroll;*/
 }
 #drag-1, #drag-2 {
   /*width: 25%;
@@ -208,12 +274,14 @@ code {
     <body   id="body">
     <script>
 
+
+
     function getPage(page)
 {
 console.log(page);
   if (page==1)
   {
-    
+    localStorage['page']=1;
     $('#page2').hide();
    $('#page3').hide();
    $('#page4').hide();
@@ -222,7 +290,7 @@ console.log(page);
   
   }
   else if(page==2)
-  { 
+  {  localStorage['page']=2;
     $('#boxb').hide();
    $('#page3').hide();
    $('#page4').hide();
@@ -231,7 +299,7 @@ console.log(page);
     
   }
 else if(page==3)
-  {
+  { localStorage['page']=3;
     $('#boxb').hide();
    $('#page2').hide();
    $('#page4').hide();
@@ -240,7 +308,7 @@ else if(page==3)
     
   }
 else if(page==4)
-  {
+  { localStorage['page']=4;
    $('#boxb').hide();
    $('#page2').hide();
    $('#page3').hide();
@@ -252,25 +320,60 @@ else if(page==4)
 }
     $(document).ready(function(){
  
+          $('#propTab').mouseover(function(event){
+    document.getElementById("toolTip").innerHTML=" Develepor Options";
+    $('#toolTip').css("top",event.pageY-40);
+    $('#toolTip').css("left",event.pageX-100);
+    $('#toolTip').show();
+
+  });
+  $('#propTab').on("mouseout",function(){
+    document.getElementById("toolTip").innerHTML="<b>Develepor Options</b>";
+    $('#toolTip').hide();
+
+  });
+  $('#propTab').on("click",function(){
+    if($('#properties').css('display')=='none')
+    {
+      $('#propTab').css('margin-left','70%');
+      $('#toolTip').hide();
+      $('#properties').show().slideDown("slow");
+    } 
+    else{
+      $('#propTab').css('margin-left','80%');
+      $('#toolTip').hide();
+      $('#properties').hide();
+    } 
+  });
 
 //set the first page in view rest hidden
  $('#page2').hide();
    $('#page3').hide();
    $('#page4').hide();
    $('#boxb').show();
+   localStorage['page']=1;
 // when cliclk in design tab or on views design the class are toggled to smaller version
-      $("#btnDesign1").click(function(){$('#tabwindow').toggleClass('col-md-9 col-md-12');});
-      $("#btnDesign2").click(function(){$('#tabwindow').toggleClass('col-md-9 col-md-12');});
+      //$("#btnDesign1").click(function(){$('#tabwindow').toggleClass('col-md-9 col-md-12');});
+      //$("#btnDesign2").click(function(){$('#tabwindow').toggleClass('col-md-9 col-md-12');});
       //$("#dropdown3").focus(function(){$('#tabwindow').toggleClass('col-md-12 col-md-6');});
      
       //^ colapse the prop and tool box to give space to survey flow tab
-      $("#imgset").click(function(){
-//set the logo url from the nav bar 
-var str = document.getElementById("npsimgurl").value;
-        $('.nps_logo_img').attr("src",str);
-        console.log(str);   
+ 
+if(localStorage['ratingTypeInt']!=null){
+setRatings(localStorage['ratingTypeInt']);
+console.log("ratingTypeInt:"+localStorage['ratingTypeInt']);
+}
+if (localStorage['ratingSize']!=null){ 
+setRatingSize(localStorage['ratingSize']);
+}
 
-      })});
+
+ $("[name='npsOn']").bootstrapSwitch(); 
+         $("[name='closeBtnBox']").bootstrapSwitch(); 
+         $("[name='openFeedBox']").bootstrapSwitch(); 
+
+
+});
   
 
     
@@ -365,60 +468,143 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
         function updatebk(jscolor) {
     // 'jscolor' instance can be used as a string
-          
-         document.getElementById('boxb').style.backgroundColor= '#' + jscolor;
-         var key="jsbkclr";
-         localStorage[key]=jscolor;
-         //console.log(jscolor);
+               var key="jsbkclr";
+                 localStorage[key]=jscolor;
+                
+        var page=parseInt(localStorage['page']);
+        console.log(typeof(page));
+         switch(page)
+         { 
+         case 1:document.getElementById('boxb').style.backgroundColor= '#' + jscolor;
+                 break;
+
+        case 2:document.getElementById('page2').style.backgroundColor= '#' + jscolor;
+                break;
+                
+        case 3:document.getElementById('page3').style.backgroundColor= '#' + jscolor;
+                break;
+        case 4:document.getElementById('page4').style.backgroundColor= '#' + jscolor;
+                break;
+          }
         }
     function updatefc(jscolor) {
     // 'jscolor' instance can be used as a string
-          document.getElementById('boxb').style.color = '#' + jscolor;
+         
          //console.log(jscolor);
           var key="jsfrclr";
          localStorage[key]=jscolor;
          
-         
+          var page=parseInt(localStorage['page']);
+        console.log(typeof(page));
+         switch(page)
+         { 
+         case 1: document.getElementById('boxb').style.color = '#' + jscolor;
+                
+                 break;
+
+        case 2:document.getElementById('page2').style.color = '#' + jscolor;
+               
+                break;
+        case 3:document.getElementById('page3').style.color = '#' + jscolor;
+                
+                 break;
+                          //console.log(jscolor);
+
+        case 4:document.getElementById('page4').style.color = '#' + jscolor;
+                 break;
+         }
         }
         function updateHeight(value) {
     // 'jscolor' instance can be used as a string
-          document.getElementById('boxb').style.height = value + 'px';
+          var key="pophight";
+         localStorage[key]=value;
+ 
+                
+            var page=parseInt(localStorage['page']);
+        console.log(typeof(page));
+         switch(page)
+         { 
+         case 1: document.getElementById('boxb').style.height = value + 'px';
+                
+                 break;
+
+        case 2:document.getElementById('page2').style.height = value + 'px';
+                break;
+                
+        case 3:document.getElementById('page3').style.height = value + 'px';
+                break;
          //console.log(jscolor);
 
-         var key="pophight";
-         localStorage[key]=value;
+        case 4:document.getElementById('page4').style.height = value + 'px';
+                break;
+         }
          
         }
         function updateWidth(value) {
     // 'jscolor' instance can be used as a string
-          document.getElementById('boxb').style.width = value + 'px';
+         
          //console.log(jscolor);
           var key="popwidth";
          localStorage[key]=value;
+
+           var page=parseInt(localStorage['page']);
+        console.log(typeof(page));
+         switch(page)
+         { 
+         case 1: document.getElementById('boxb').style.width = value + 'px';
+               
+                 break;
+
+        case 2:document.getElementById('page2').style.width = value + 'px';
+               break;
+                
+        case 3:document.getElementById('page3').style.width = value + 'px';
+              break;
+
+        case 4:document.getElementById('page4').style.width = value + 'px';
+                 break;
          
         }
-        $(document).ready(function(){
-         $("[name='npsOn']").bootstrapSwitch(); 
-         $("[name='closeBtnBox']").bootstrapSwitch(); 
-         $("[name='openFeedBox']").bootstrapSwitch(); 
-         
-        });
+      }
+        
          
     function setRatings(value)
 { var key="ratingType";
-localStorage[key]=value;
-
+value= parseInt(value);
+localStorage['ratingTypeInt']=value;
 //  alert(value);
+
   if (value==null)
   {}
-else if(value=='1')
-  {$('#boxb').append('<form class="container-fluid"><div id="rec_bar"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" value="0" type="number" class="rating" min=0 max=11 step=1 data-size="md" data-stars="11"><div id="rec_bar"> <span>Not likely</span><span style="margin-left:70%;">Very Likely</span> </div></form><center><button class="btn btn-info">Submit</button></center>');
+else if(value==1)
+  {$('#rating').remove();
+    localStorage[key]='<form id="rating" class="container-fluid"><div id="rec_bar1"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" value="0" type="number" class="rating" min=0 max=11 step=1 data-size="md" data-stars="11"><div id="rec_bar"> <span>Not likely</span><span id="likely" style="margin-left:80%;">Very Likely</span> </div><br/><center><button class="btn btn-info">Submit</button></center></form>';
+ 
+$('#boxb').append(localStorage[key]);
   $("#tvc_rating").rating();
+   }
+else if(value==2)
+  {$('#rating').remove();
+   localStorage[key]='<form id="rating" class="container-fluid"><div id="rec_bar1"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" type="number" class="kv-ltr-theme-svg-alt rating-loading" value="0" dir="ltr" data-size="md" min=0 max=11 step=1 data-stars="11"><div id="rec_bar"> <span>Not likely</span><span id="likely" style="margin-left:80%;">Very Likely</span> </div><br/><center><button class="btn btn-info">Submit</button></center></form>';
+
+    $('#boxb').append(localStorage[key]);
+    $('#tvc_rating').rating({
+        hoverOnClear: false,
+        theme: 'krajee-svg',
+        containerClass: 'is-heart',
+        filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+        emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+        defaultCaption: '{rating} hearts',
+        starCaptions: function (rating) {
+            return rating == 1 ? 'One heart' : rating + ' hearts';
+        }
+    });
   }
-else if(value=='2')
-  {$('#boxb').append('<form class="container-fluid"><div id="rec_bar"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" value="0" type="number" class="rating" min=0 max=11 step=1 data-size="md" data-stars="11"><div id="rec_bar"> <span>Not likely</span><span style="margin-left:70%;">Very Likely</span> </div></form>');
- $("#tvc_rating").rating();
-  }
+
+  $('#tvc_rating').on('rating.change', function(event, value, caption) {
+    console.log(value-1);
+    console.log(caption);
+});
    
 }
 
@@ -428,32 +614,206 @@ function setRatingSize(value)
  var key="ratingSize";
 localStorage[key]=value;
 //alert(value);
-  if (value==null)
-  {}
-else if(value=="xl")
+if(parseInt(localStorage['ratingTypeInt'])==1)
+{
+      if (value==null)
+      {}
+    else if(value=="xl")
+      {
+     
+      $('#rec_bar1 >span').css('margin-left','66px');
+      $('#rec_bar1 >span:first').css('margin-left','30px');
+       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'xl'});
+       document.getElementById('boxb').style.width =890+'px';
+       document.getElementById('boxb').style.height =360+'px';
+        document.getElementById('likely').style.marginLeft =83+'%';
+        
+      }
+    else if(value=="lg")
+      {$('#rec_bar1 >span').css('margin-left','53px');
+     $('#rec_bar1 >span:first').css('margin-left','20px');
+       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'lg'});
+       document.getElementById('boxb').style.width =750+'px';
+        document.getElementById('boxb').style.height =340+'px';
+        document.getElementById('likely').style.marginLeft =80+'%';
+        
+      }
+      else if(value=="md")
+      {$('#rec_bar1 >span').css('margin-left','42px');
+     $('#rec_bar1 >span:first').css('margin-left','17px');
+        $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'md'});
+        document.getElementById('boxb').style.width =630+'px';
+         document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('likely').style.marginLeft =75+'%';
+      
+      }
+      else if(value=="sm")
+      {$('#rec_bar1 >span').css('margin-left','33px');
+     $('#rec_bar1 >span:first').css('margin-left','13px');
+       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'sm'});
+       document.getElementById('boxb').style.width =550+'px';
+         document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('likely').style.marginLeft =70+'%';
+        
+      }
+       else if(value=="xs")
+      {$('#rec_bar1 >span').css('margin-left','26px');
+     $('#rec_bar1 >span:first').css('margin-left','10px');
+       $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'xs'});
+       document.getElementById('boxb').style.width =450+'px';
+         document.getElementById('boxb').style.height =320+'px';
+        document.getElementById('likely').style.marginLeft =65+'%';
+        
+      }
+
+    }
+  else if(parseInt(localStorage['ratingTypeInt'])==2)
   {
- 
-  
-   $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'lg'});
-  
+     if (value==null)
+      {}
+    else if(value=="xl")
+      {
+     
+      $('#rec_bar1 >span').css('margin-left','66px');
+      $('#rec_bar1 >span:first').css('margin-left','32px');
+       $('#tvc_rating').rating('create',{
+        hoverOnClear: false,
+        theme: 'krajee-svg',
+        containerClass: 'is-heart',
+        filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+        emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+        defaultCaption: '{rating} hearts',
+        size:'xl',
+        stars:11,
+        starCaptions: function (rating) {
+            return rating == 1 ? 'One heart' : rating + ' hearts';
+        }
+    });
+       document.getElementById('boxb').style.width =900+'px';
+       document.getElementById('boxb').style.height =360+'px';
+        document.getElementById('likely').style.marginLeft =83+'%';
+        
+      }
+    else if(value=="lg")
+      {
+        $('#rec_bar1 >span').css('margin-left','53px');
+        $('#rec_bar1 >span:first').css('margin-left','22px');
+        $('#tvc_rating').rating('create',{
+            hoverOnClear: false,
+            theme: 'krajee-svg',
+            containerClass: 'is-heart',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            size:'lg',
+            stars:11,
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            }
+        });
+       document.getElementById('boxb').style.width =750+'px';
+        document.getElementById('boxb').style.height =340+'px';
+        document.getElementById('likely').style.marginLeft =80+'%';
+        
+      }
+      else if(value=="md")
+      {
+        $('#rec_bar1 >span').css('margin-left','39px');
+        $('#rec_bar1 >span:first').css('margin-left','17px');
+        $('#tvc_rating').rating('create',{
+            hoverOnClear: false,
+            theme: 'krajee-svg',
+            containerClass: 'is-heart',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            size:'md',
+            stars:11,
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            }
+        });
+        document.getElementById('boxb').style.width =630+'px';
+        document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('likely').style.marginLeft =75+'%';
+      
+      }
+      else if(value=="sm")
+      {
+        $('#rec_bar1 >span').css('margin-left','32px');
+        $('#rec_bar1 >span:first').css('margin-left','14px');
+        $('#tvc_rating').rating('create',{
+            hoverOnClear: false,
+            theme: 'krajee-svg',
+            containerClass: 'is-heart',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            size:'sm',
+            stars:11,
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            }
+        });
+        document.getElementById('boxb').style.width =550+'px';
+        document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('likely').style.marginLeft =70+'%';
+        
+      }
+       else if(value=="xs")
+      {
+        $('#rec_bar1 >span').css('margin-left','23px');
+        $('#rec_bar1 >span:first').css('margin-left','12px');
+                $('#tvc_rating').rating('create',{
+            hoverOnClear: false,
+            theme: 'krajee-svg',
+            containerClass: 'is-heart',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            size:'xs',
+            stars:11,
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            }
+        });
+        document.getElementById('boxb').style.width =450+'px';
+        document.getElementById('boxb').style.height =320+'px';
+        document.getElementById('likely').style.marginLeft =65+'%';
+        
+      }
+
   }
-else if(value=="lg")
-  {
-    $("#tvc_rating").rating({size:'lg'});
-  }
-  else if(value=="md")
-  {
-    $("#tvc_rating").rating({size:'md'});
-  }
-  else if(value=="sm")
-  {
-    $("#tvc_rating").rating({size:'sm'});
-  }
-   else if(value=="xs")
-  {
-    $("#tvc_rating").rating({size:'xs'});
-  }
+
 }
+
+
+
+function setImg()
+{
+  var str = document.getElementById("imgUrl").value;
+        $('.nps_logo_img').attr("src",str);
+        console.log(str);  
+
+str = document.getElementById("imgAlt").value;
+        $('.nps_logo_img').attr("alt",str);     
+        console.log(str);   
+
+str = document.getElementById("imgHeight").value;
+        $('.nps_logo_img').attr("height",str);     
+        console.log(str);   
+
+str = document.getElementById("imgWidth").value;
+        $('.nps_logo_img').attr("width",str);     
+        console.log(str);   
+
+   
+
+
+}
+
+
+
   </script>
 
   
@@ -503,7 +863,12 @@ else if(value=="lg")
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                
+                                <li><a href="{{ url('Embedcode') }}"><i class="fa fa-btn fa-sign-out"></i><strong>Embed Code</strong></a></li>
+                            
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i><strong>Logout</strong></a></li>
+                            
+
                             </ul>
                         </li>
                     </ul>
@@ -687,15 +1052,35 @@ $('#page2').attr("contentEditable","false");
 $('#page3').attr("contentEditable","false");
 $('#page4').attr("contentEditable","false");
 
-  
+ /*var  contentEl = document.getElementById("rec_bar1");
+   if(contentEl!=null){
+    localStorage['rectBar1'] = contentEl.innerHTML;
+console.log(localStorage['rectBar1']);
+}*/
+
+$('#rating').remove(); 
+$('#boxb').remove('center')
+
 
 var key = "draft";
 
 localStorage[key]=null;
-    contentEl = document.getElementById("openModal");
-    localStorage[key] = contentEl.innerHTML;
-  
 
+  var  contentEl = document.getElementById("openModal");
+    localStorage[key] = contentEl.innerHTML;
+
+ if(localStorage['ratingTypeInt']!=null){
+setRatings(localStorage['ratingTypeInt']);
+console.log("ratingTypeInt:"+localStorage['ratingTypeInt']);
+}
+if (localStorage['ratingSize']!=null){ 
+setRatingSize(localStorage['ratingSize']);
+}
+
+  /*var  contentEl = document.getElementById("rec_bar1");
+   if(contentEl!=null){
+     contentEl.innerHTML=localStorage['rectBar1'] ;
+}*/
   var win = window.open('{{ url('/preview2') }}');
 
     $('#boxb').attr("contentEditable","true");
@@ -729,16 +1114,16 @@ $.ajaxSetup({
   $(document).ready(function() {
   $body=Base64.encode(localStorage['draft']);
     $.ajax ({
-    url:  "{!! URL::to('testjson') !!}",
+    url:  "{!! URL::to('createjs') !!}",
     type: "POST",
-    data: { _token: $('meta[name="csrf_token"]').attr('content'),body:localStorage['draft'],body2:localStorage['jsbkclr']},
+    data: { file:'{{Auth::user()->name}}',head:Base64.encode("<style> .title {font-size: 96px;} .modalDialog {position: fixed; font-family: Arial, Helvetica, sans-serif; display:none;top: 0;right: 0; bottom: 0; left: 0;background: rgba(0,0,0,0);z-index: 99999;opacity:0;-webkit-transition: opacity 400ms ease-in;-moz-transition: opacity 400ms ease-in;transition: opacity 400ms ease-in;pointer-events:none;}.modalDialog:target{opacity:1;pointer-events: auto;}.modalDialog > div {width: 720px; height: 325px;position: relative;margin: 10% auto; padding: 5px 20px 13px 20px; border-radius: 10px;background: #FFFFFF;border: 1px;border-style:solid; box-shadow:10px 10px 15px #888888;}.close {z-index: 99999;background: #606061;color: #FFFFFF;line-height: 25px;position: absolute;right: -12px;text-align: center;top: -10px;width: 24px;text-decoration: none;font-weight: bold;-webkit-border-radius: 12px;-moz-border-radius: 12px;border-radius: 12px;-moz-box-shadow: 1px 1px 3px #000;-webkit-box-shadow: 1px 1px 3px #000;box-shadow: 1px 1px 3px #000;}.close:hover { background: #000;}.popTitle {text-align: center;}.container{ margin: auto;width: 60%;padding: 10px;}p{text-align:center;line-height: .5em;}</style>"),draft:$body,ratingType:Base64.encode(localStorage['ratingType']),ratingTypeInt:localStorage['ratingTypeInt'],ratingSize:localStorage['ratingSize']},
     cache: false,
     dataType: "json",
     success: function(data){
-      $body=Base64.decode(data.body);
+      
     
-        console.log($body);
-        console.log(data.body2);
+        //console.log(Base64.decode(data.response));
+      // alert(data.response);
     }
 });  
 }); 
@@ -746,46 +1131,7 @@ $.ajaxSetup({
 }
 
 $(document).ready(function(){
-  var key="draft";
-  if(localStorage[key]!=null)
-  {var contentEl = document.getElementById("openModal");
-    contentEl.innerHTML=localStorage[key];
-
-        
-        
-          var key=new Array("draft","pophight","popwidth","jsbkclr","jsfrclr");
-          
-          if(localStorage[key[0]]==null)
-            {}
-            else
-            { $('head').append('<style type="text/css">.modalDialog > div {width:'+localStorage[key[2]]+'px; height:'+localStorage[key[1]]+'px;background:'+'#'+localStorage[key[3]]+' ; color:'+'#'+localStorage[key[4]]+';}');
-
-              var contentEl = document.getElementById("openModal");
-              contentEl.innerHTML=localStorage[key[0]];
-              $(".rating-container").remove();
-              $("#rec_bar").remove();
-              $("#rec_bar").remove();
-             //setRatings();
-              $("#tvc_rating").rating();
-              
-            }
-          if (localStorage[key[1]]!=null)
-          {
-              document.getElementById("height").value=localStorage[key[1]];
-          }
-          if (localStorage[key[2]]!=null)
-          {
-            document.getElementById("width").value=localStorage[key[2]];
-          }
-          if (localStorage[key[3]]!=null)
-          {
-            document.getElementById("bckclr").value=localStorage[key[3]];
-          }
-          if (localStorage[key[4]]!=null)
-          {
-            document.getElementById("frclr").value=localStorage[key[4]];
-          }
-
+  
 $('#boxb').attr("contentEditable","true");
 $('#page2').attr("contentEditable","true");
 $('#page3').attr("contentEditable","true");
@@ -795,7 +1141,7 @@ $('#page4').attr("contentEditable","true");
         
         
        
-  }
+  
  
   
   });
@@ -812,7 +1158,11 @@ function resetDesign(){
 
 function sendForm(value)
 {
-
+$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 switch(value){
 
   case 1://general setting form 
@@ -827,7 +1177,8 @@ switch(value){
    
          
         console.log(data);
-    }
+        
+      }
     });
       break;
   case 2:alert(value);
@@ -842,6 +1193,40 @@ switch(value){
          
         console.log(data);
     }
+    });
+
+   case 3:alert(value);
+   $.ajax ({
+    url:  "{!! URL::to('testjson') !!}",
+    type: "POST",
+    data: $('#workFlow').serialize(),
+    cache: false,
+    dataType: "json",
+    success: function(data){
+ 
+       
+      console.log(data);
+      }
+    });
+
+   case 4:alert(value);
+   $.ajax ({
+    url:  "{!! URL::to('testjson') !!}",
+    type: "POST",
+    data: $('#customText').serialize(),
+    cache: false,
+    dataType: "json",
+    success: function(data){
+ 
+       
+      console.log(data);
+     localStorage['fblink']=data;
+      $('#customText').append('<a id="fblink" target="_blank" href='+data+'  style="color:#ffffff;">Click Me facebook !</a>');
+      $('#customText').append('<a id="tweetlink" target="_blank" href="https://twitter.com/intent/tweet?text='+document.getElementById('sharetext').value+'&url='+document.getElementById('shareurl').value+'style="color:#ffffff;">Click Me twitter !</a>');
+      $('#fblink').show();
+      $('#tvc_fb').attr('href',data);
+      $('#tvc_twitter').attr('href','https://twitter.com/intent/tweet?text='+document.getElementById('sharetext').value+'&url='+document.getElementById('shareurl').value);
+      }
     });
   }
 }
@@ -864,8 +1249,27 @@ switch(value){
 })();
 //]]>
 
+$(document).ready(
+function(){
+var ca = document.createElement("script"),t; 
+                ca.type = "text/javascript"; 
+                ca.async = true; 
+                ca.src = "assets/tags/{{ Auth::user()->name }}.js"; 
+                t = document.getElementsByTagName("script")[0]; //find all the script tag, go to the first script tag
+                t.parentNode.insertBefore(ca, t);
+
+}
+
+  );
 
 
+$(document).ready(function(){
+ 
+  
+
+});
 </script>
+
+
     </body>
 </html>

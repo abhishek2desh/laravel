@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('layouts.app')
 <link rel="stylesheet" href="{{URL::asset('assets/css/star-rating.css')}}" media="all" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="{{URL::asset('assets/js/star-rating.js')}}" type="text/javascript"></script>

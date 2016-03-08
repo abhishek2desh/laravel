@@ -49,6 +49,28 @@ class AjaxController extends Controller
 
         return response()->json(['response' => 'failed']);
     }
+
+
+public function jsCreator(Request $request) {
+         if ($request->ajax())
+         {  //$hello = Input::get('body');
+           // $hello2=Input::get("body2");
+            //$body = $request->input('body');
+            //$response=Input::get('draft');
+            //$content = $request->getContent();
+
+          
+            
+            return view("jsCreator");
+            //return response()->json(['response'=>$response]);
+         }
+
+        
+
+        return response()->json(['response' => 'failed']);
+    }
+
+
 }
 
    
