@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/',function () {
     return view('welcome');
 });
-
 Route::get('rating', function () {
     return view('rating');
 });
@@ -59,12 +59,20 @@ Route::get('preview',function(){
 
 Route::group(['middleware' => ['web']], function () {
     //
+   /*Route::get('/login', function () {
+    if(Auth::check()) {
+        return redirect('/dashboard');
+    } else {
+        return view('auth.login');
+    }
+   });*/
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     
-    Route::get('/home', 'HomeController@index');
+    Route::get('home', 'HomeController@code');
+    
     route::get('dashboard','HomeController@test');
     Route::get('contact','HomeController@contact');
     Route::get('share','HomeController@share');

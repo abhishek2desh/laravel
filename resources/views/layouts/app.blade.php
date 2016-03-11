@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>NPS Builder</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -17,7 +17,12 @@
 
     <style>
         body {
+            
             font-family: 'Lato';
+            background-image: url(assets/img/npsPoster.jpg);
+            background-repeat:no-repeat;
+background-attachment: fixed;
+ 
         }
 
         .fa-btn {
@@ -47,7 +52,6 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                     
                 </ul>

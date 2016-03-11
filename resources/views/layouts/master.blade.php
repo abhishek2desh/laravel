@@ -1,47 +1,99 @@
 <!-- Stored in resources/views/layouts/master.blade.php -->
 
-<html>
-    <head>
-        
-        <!--<link rel="stylesheet" href="{{ URL::asset('assets/css/custom.min.css') }}">-->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>NPS Builder</title>
+
+    <!-- Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+
+    <!-- Styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    
          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
         <link href="{{URL::asset('assets/css/bootstrap-switch.css')}}" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/styles/desert.css">
+        
      <link rel="stylesheet" href="{{URL::asset('assets/css/star-rating.css')}}"  type="text/css">
      <link rel="stylesheet" href="{{URL::asset('assets/css/theme-krajee-svg.css')}}"  type="text/css">
      
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <style type="text/css">
+            
+            
+            
+ body {
+            font-family: 'Lato';
+        }
 
-.fontEdit{
-top:50px;
-  width:200px;
-  height:10px;
+.fa-btn {
+            margin-right: 6px;
+        }
 
+.rotate {
+
+/* Safari */
+-webkit-transform: rotate(90deg);
+
+/* Firefox */
+-moz-transform: rotate(90deg);
+
+/* IE */
+-ms-transform: rotate(90deg);
+
+/* Opera */
+-o-transform: rotate(90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+ cursor:pointer;
 
 }
-
 
 .label-as-badge {
     border-radius: 1em;
 }
    
-
-.row{
-  border:1px solid #000000;
+.button{
+height:5%; 
+  width: 10%;
 }
 
+.nav-tabs{
+  background-color:lightgrey;
+}
+html,.container-fluid, .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+  background-color: darkgrey;
+}
 
+.legends{
+  margin-left: 45%;
+  margin-top: 5%;
+  font-weight: bolder;
+
+}
+form#rating{
+
+  background-color: white;
+}
 .modalDialog {
                 color: #000;
-
-                 position: absolute;
+                
+                float: right;
+                font-family:serif; 
+               right:  29%;
+               position: relative;
                 pointer-events: auto;
                 font-family: Arial, Helvetica, sans-serif;
                 
                 background: rgba(0,0,0,0);
-                z-index: 99999;
+                z-index: 999;
                 opacity:1;
                 -webkit-transition: opacity 400ms ease-in;
                 -moz-transition: opacity 400ms ease-in;
@@ -106,6 +158,7 @@ top:50px;
                border-style:solid;
                box-shadow:10px 10px 15px #888888; 
                 z-index: 99999;
+            
                /*background: -moz-linear-gradient(#fff, #999);
                background: -webkit-linear-gradient(#fff, #999);
                background: -o-linear-gradient(#fff, #999);
@@ -115,7 +168,7 @@ top:50px;
             .close:hover { 
               background-color: #fff;}
             .close {z-index: 99999;
-              background: #606061;
+              background: grey;
               color: #FFFFFF;
               line-height: 25px;
               position: absolute;
@@ -136,6 +189,20 @@ top:50px;
             .popTitle {
                  text-align: center;
                  
+            }
+            
+            #rec_bar1>span{
+                color: darkgrey;
+                font-family: sans-serif;
+            }
+            #rec_bar>span{
+            color: dimgrey;
+                font-family:serif;               
+            }
+            .modalDialog p{
+              color: black;
+              font-weight: bolder;
+              opacity: 0.7;
             }
 .toolbox{
   /*width: 20px;
@@ -239,7 +306,11 @@ code {
 
   height: 240px;
 }
-.ul-dropdown{background-color:#3d3d3d} #body{background-color:#3d3d3d;color: #fff } .navbar{-webkit-transition:background-color 300ms ease-in;transition:background-color 300ms ease-in}@media (min-width:768px){body>.navbar-transparent{background-color:transparent}body>.navbar-transparent .navbar-nav>.open>a{background-color:transparent!important}}#home{padding-top:0}#home .navbar-brand{padding:13.5px 15px 12.5px}#home .navbar-brand>img{display:inline;margin:0 10px;height:100%}#banner{min-height:300px;border-bottom:none}.table-of-contents{margin-top:1em}.page-header h1{font-size:4em}.bs-docs-section{margin-top:6em}.bs-docs-section h1{padding-top:100px}.bs-component{position:relative}.bs-component .modal{position:relative;top:auto;right:auto;left:auto;bottom:auto;z-index:1;display:block}.bs-component .modal-dialog{width:90%}.bs-component .popover{position:relative;display:inline-block;width:220px;margin:20px}#source-button{position:absolute;top:0;right:0;z-index:100;font-weight:700}.nav-tabs{margin-bottom:15px}.progress{margin-bottom:10px}footer{margin:5em 0}footer li{float:left;margin-right:1.5em;margin-bottom:1.5em}footer p{clear:left;margin-bottom:0}.splash{padding:9em 0 2em;background-color:#141d27;background-image:url(../img/bg.jpg);background-size:cover;background-attachment:fixed;color:#fff;text-align:center}.splash .logo{width:160px}.splash h1{font-size:3em}.splash #social{margin:2em 0}.splash .alert{margin:2em 0}.section-tout{padding:4em 0 3em;border-bottom:1px solid rgba(0,0,0,.05);background-color:#eaf1f1}.section-tout .fa{margin-right:.5em}.section-tout p{margin-bottom:3em}.section-preview{padding:4em 0 4em}.section-preview .preview{margin-bottom:4em;background-color:#eaf1f1}.section-preview .preview .image{position:relative}.section-preview .preview .image:before{box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);position:absolute;top:0;left:0;width:100%;height:100%;content:"";pointer-events:none}.section-preview .preview .options{padding:1em 2em 2em;border:1px solid rgba(0,0,0,.05);border-top:none;text-align:center}.section-preview .preview .options p{margin-bottom:2em}.section-preview .dropdown-menu{text-align:left}.section-preview .lead{margin-bottom:2em}@media (max-width:767px){.section-preview .image img{width:100%}}.sponsor{text-align:center}.sponsor a:hover{text-decoration:none}@media (max-width:767px){.splash{padding-top:4em}.splash .logo{width:100px}.splash h1{font-size:2em}#banner{margin-bottom:2em;text-align:center}} .panel-body{color: #000}.panel-heading{background-color:#3d3d3d}       </style>
+
+
+
+
+     </style>
        
        
         
@@ -265,7 +336,7 @@ code {
         <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer="defer"></script>
         
         
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     
       <title>NPS Tool - @yield('title')</title>
     
@@ -320,32 +391,87 @@ else if(page==4)
 }
     $(document).ready(function(){
  
+        $('.nps_logo_img').click(function(event){
+            $('#body').append("<div class='imgpop' style='position:absolute'><input height='100px' id='imgurl2'  type='Text' placeholder='Input logo Url'></input><input id='imgset' type='button' value='setLogo' onclick='setimg2()'></input></div>");
+             $('.imgpop').css("top",event.pageY-50);
+    $('.imgpop').css("left",event.pageX-10);
+    $('.imgpop').css("height",'auto');
+    $('.imgpop').css("background",'grey');
+    
+    $('.imgpop').show();
+    
+                   
+            
+        });
+        
+   
+
           $('#propTab').mouseover(function(event){
-    document.getElementById("toolTip").innerHTML=" Develepor Options";
-    $('#toolTip').css("top",event.pageY-40);
-    $('#toolTip').css("left",event.pageX-100);
+    document.getElementById("toolTip").innerHTML="<strong><h4>Develepor Options</h4></strong>";
+    $('#toolTip').css("top",event.pageY-50);
+    $('#toolTip').css("left",event.pageX-10);
+    $('#toolTip').css("height",'auto');
     $('#toolTip').show();
 
   });
   $('#propTab').on("mouseout",function(){
-    document.getElementById("toolTip").innerHTML="<b>Develepor Options</b>";
+    document.getElementById("toolTip").innerHTML="<strong><h3>Develepor Options</h3></strong>";
     $('#toolTip').hide();
 
   });
   $('#propTab').on("click",function(){
     if($('#properties').css('display')=='none')
     {
-      $('#propTab').css('margin-left','70%');
+      
+       $('#propTab').html("<center><span class='rotate glyphicon glyphicon-cog'><div style='height:5%px'><h3>Hide Options</h3></div></span></center>");
       $('#toolTip').hide();
       $('#properties').show().slideDown("slow");
     } 
     else{
-      $('#propTab').css('margin-left','80%');
+      
+      $('#propTab').html("<center><span class='rotate glyphicon glyphicon-cog'><div style='height:5%px'><h3>Developer Options</h3></div></span></center>");
       $('#toolTip').hide();
       $('#properties').hide();
     } 
+
+ 
+
   });
 
+ $(".tip").mouseover(function(event){
+    $('#toolTip').html("<strong><h4>"+$(this).attr("tip")+"</h4></strong>");
+    $('#toolTip').css("top",event.pageY-40);
+    $('#toolTip').css("left",event.pageX-10);
+    $('#toolTip').css("color","#011627");
+    $('#toolTip').css("height","auto");
+    $('#toolTip').show();
+    
+   });
+
+ $(".tip").mouseout(function(event){
+    $('#toolTip').hide();
+   });
+
+ //floating fon format container
+$("#openModal  p, #openModal  h1,#openModal  h2,#openModal  h3,#openModal  h4").mouseover(function(){
+  $(this).css("border","3px dashed red");
+
+
+});
+
+$("#openModal  p, #openModal  h1,#openModal  h2,#openModal  h3,#openModal  h4").mouseout(function(){
+ $(this).css("border","0px dashed #fff");
+
+});
+
+$("#openModal  p, #openModal  h1,#openModal  h2,#openModal  h3,#openModal  h4").click(function(event){
+  $(this).css("border","3px solid red");
+  $('#formatText').css("top","75%");
+   $('#formatText').css("left","45%");
+  $('#formatText').css("z-index","999");
+   $('#formatText').show();
+
+});
 //set the first page in view rest hidden
  $('#page2').hide();
    $('#page3').hide();
@@ -476,14 +602,18 @@ document.getElementsByTagName('head')[0].appendChild(style);
          switch(page)
          { 
          case 1:document.getElementById('boxb').style.backgroundColor= '#' + jscolor;
+                $('#rating.container-fluid').css('background-color','#' + jscolor);
                  break;
 
         case 2:document.getElementById('page2').style.backgroundColor= '#' + jscolor;
+               $('#rating.container-fluid').css('background-color','#' + jscolor);
                 break;
                 
         case 3:document.getElementById('page3').style.backgroundColor= '#' + jscolor;
+                $('#rating.container-fluid').css('background-color','#' + jscolor);
                 break;
         case 4:document.getElementById('page4').style.backgroundColor= '#' + jscolor;
+                $('#rating..container-fluid ').css('background-color','#' + jscolor);
                 break;
           }
         }
@@ -566,10 +696,28 @@ document.getElementsByTagName('head')[0].appendChild(style);
          
         }
       }
-        
-         
-    function setRatings(value)
-{ var key="ratingType";
+    function updateclsbkclr (value)
+    {
+      $('.close').css("background-color",'#'+value);
+
+    }  
+     
+    function updateclsclr (value)
+    {
+      $('.close').css("color",'#'+value);
+
+    } 
+    function updateclsopc (value)
+    {
+      $('.close').css("opacity",value);
+
+    }      
+
+
+
+function setRatings(value)
+{
+ var key="ratingType";
 value= parseInt(value);
 localStorage['ratingTypeInt']=value;
 //  alert(value);
@@ -578,14 +726,14 @@ localStorage['ratingTypeInt']=value;
   {}
 else if(value==1)
   {$('#rating').remove();
-    localStorage[key]='<form id="rating" class="container-fluid"><div id="rec_bar1"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" value="0" type="number" class="rating" min=0 max=11 step=1 data-size="md" data-stars="11"><div id="rec_bar"> <span>Not likely</span><span id="likely" style="margin-left:80%;">Very Likely</span> </div><br/><center><button class="btn btn-info">Submit</button></center></form>';
+    localStorage[key]='<form id="rating" class="container-fluid"><div id="rec_bar1"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" value="0" type="number" class="rating" min=0 max=11 step=1 data-size="md" data-stars="11"><div id="rec_bar"> <span>Not likely</span><span id="likely" style="margin-left:80%;">Very Likely</span> </div><br/><center><button type="button" style="width:150px" class="btn btn-info">Submit</button></center></form>';
  
 $('#boxb').append(localStorage[key]);
   $("#tvc_rating").rating();
    }
 else if(value==2)
   {$('#rating').remove();
-   localStorage[key]='<form id="rating" class="container-fluid"><div id="rec_bar1"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" type="number" class="kv-ltr-theme-svg-alt rating-loading" value="0" dir="ltr" data-size="md" min=0 max=11 step=1 data-stars="11"><div id="rec_bar"> <span>Not likely</span><span id="likely" style="margin-left:80%;">Very Likely</span> </div><br/><center><button class="btn btn-info">Submit</button></center></form>';
+   localStorage[key]='<form id="rating" class="container-fluid"><div id="rec_bar1"><span style="margin-left:3%;">0</span><span style="margin-left:6%;">1</span><span style="margin-left:7%;">2</span><span style="margin-left:6%;">3</span><span style="margin-left:6%;">4</span><span style="margin-left:6%;">5</span><span style="margin-left:6%;">6</span><span style="margin-left:6%;">7</span><span style="margin-left:6%;">8</span><span style="margin-left:6%;">9</span><span style="margin-left:6%;">10</span></div><input id="tvc_rating" type="number" class="kv-ltr-theme-svg-alt rating-loading" value="0" dir="ltr" data-size="md" min=0 max=11 step=1 data-stars="11"><div id="rec_bar"> <span>Not likely</span><span id="likely" style="margin-left:80%;">Very Likely</span> </div><br/><center><button type="button" style="width:150px" class="btn btn-info">Submit</button></center></form>';
 
     $('#boxb').append(localStorage[key]);
     $('#tvc_rating').rating({
@@ -600,7 +748,7 @@ else if(value==2)
         }
     });
   }
-
+setRatingSize('md');
   $('#tvc_rating').on('rating.change', function(event, value, caption) {
     console.log(value-1);
     console.log(caption);
@@ -625,7 +773,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
       $('#rec_bar1 >span:first').css('margin-left','30px');
        $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'xl'});
        document.getElementById('boxb').style.width =890+'px';
-       document.getElementById('boxb').style.height =360+'px';
+       document.getElementById('boxb').style.height =390+'px';
         document.getElementById('likely').style.marginLeft =83+'%';
         
       }
@@ -634,7 +782,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
      $('#rec_bar1 >span:first').css('margin-left','20px');
        $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'lg'});
        document.getElementById('boxb').style.width =750+'px';
-        document.getElementById('boxb').style.height =340+'px';
+        document.getElementById('boxb').style.height =380+'px';
         document.getElementById('likely').style.marginLeft =80+'%';
         
       }
@@ -643,7 +791,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
      $('#rec_bar1 >span:first').css('margin-left','17px');
         $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'md'});
         document.getElementById('boxb').style.width =630+'px';
-         document.getElementById('boxb').style.height =330+'px';
+         document.getElementById('boxb').style.height =370+'px';
         document.getElementById('likely').style.marginLeft =75+'%';
       
       }
@@ -652,7 +800,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
      $('#rec_bar1 >span:first').css('margin-left','13px');
        $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'sm'});
        document.getElementById('boxb').style.width =550+'px';
-         document.getElementById('boxb').style.height =330+'px';
+         document.getElementById('boxb').style.height =350+'px';
         document.getElementById('likely').style.marginLeft =70+'%';
         
       }
@@ -661,7 +809,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
      $('#rec_bar1 >span:first').css('margin-left','10px');
        $('#tvc_rating').rating('create', {min:0, max:11, step:1,stars:11, size:'xs'});
        document.getElementById('boxb').style.width =450+'px';
-         document.getElementById('boxb').style.height =320+'px';
+         document.getElementById('boxb').style.height =330+'px';
         document.getElementById('likely').style.marginLeft =65+'%';
         
       }
@@ -690,7 +838,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
         }
     });
        document.getElementById('boxb').style.width =900+'px';
-       document.getElementById('boxb').style.height =360+'px';
+       document.getElementById('boxb').style.height =390+'px';
         document.getElementById('likely').style.marginLeft =83+'%';
         
       }
@@ -712,7 +860,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
             }
         });
        document.getElementById('boxb').style.width =750+'px';
-        document.getElementById('boxb').style.height =340+'px';
+        document.getElementById('boxb').style.height =370+'px';
         document.getElementById('likely').style.marginLeft =80+'%';
         
       }
@@ -733,8 +881,8 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
                 return rating == 1 ? 'One heart' : rating + ' hearts';
             }
         });
-        document.getElementById('boxb').style.width =630+'px';
-        document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('boxb').style.width =590+'px';
+        document.getElementById('boxb').style.height =360+'px';
         document.getElementById('likely').style.marginLeft =75+'%';
       
       }
@@ -756,7 +904,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
             }
         });
         document.getElementById('boxb').style.width =550+'px';
-        document.getElementById('boxb').style.height =330+'px';
+        document.getElementById('boxb').style.height =350+'px';
         document.getElementById('likely').style.marginLeft =70+'%';
         
       }
@@ -778,7 +926,7 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
             }
         });
         document.getElementById('boxb').style.width =450+'px';
-        document.getElementById('boxb').style.height =320+'px';
+        document.getElementById('boxb').style.height =340+'px';
         document.getElementById('likely').style.marginLeft =65+'%';
         
       }
@@ -787,7 +935,12 @@ if(parseInt(localStorage['ratingTypeInt'])==1)
 
 }
 
-
+function setimg2(){
+var str = document.getElementById("imgurl2").value;
+document.getElementById("imgUrl").value=str;
+setImg();
+$('.imgpop').hide();
+}
 
 function setImg()
 {
@@ -812,70 +965,37 @@ str = document.getElementById("imgWidth").value;
 
 }
 
+function setOption(value)
+{
+if (value=='false')
+  {
+   
+    $('#propTab').hide();
+    $('#properties').css('visibility','hidden');
+  
+  }
+else if(value=='true')
+  {
+    
+    $('#propTab').show();
+     $
 
+    if ($('#properties').css('visibility')=='hidden')
+    {
+      $('#properties').css('visibility','visible');
+
+
+    }
+    
+  }
+
+}
 
   </script>
 
   
        
-           <nav class="navbar navbar-static-top navbar-default navbar-inverse" >
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    
-                  </div>
-
-                  
-
-                    <ul class="nav navbar-nav navbar-right">
-                      
-                     <li> <button  class="btn btn-default navbar-btn " data-toggle="collapse" data-target="#editor"><strong>Show Code</strong></button></li>
-                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle dropdown-menu-inverse" data-toggle="dropdown" role="button" aria-expanded="false">Change View <span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-left" role="menu" >
-                          <li style="color:#fff;"><a href="#" data-toggle="collapse" data-target="#editor"><strong>Editor</strong></a></li>
-                          <li class="divider" style="background-color:#000;color:#3d3d3d"></li>
-                          <li ><a href="#design" data-toggle="collapse" data-target="#toolbox,#properties" id="btnDesign2"><strong>View Designer</strong></a></li>
-                          <li class="divider" style="background-color:#000;color:#3d3d3d"></li>
-                          <li  ><a  href="{{ url('/preview') }}" onClick="saveDraftLocal()"><strong>Preview</strong></a></li> 
-                           <li></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle dropdown-menu-inverse" data-toggle="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
-                        <ul class="dropdown-menu " role="menu">
-                          <li><a href="#"><strong>Compile</strong></a></li>
-                          <li class="divider"></li>
-                          <li><a href="#"><strong>Preview</strong></a></li>
-                          <li class="divider"></li>
-                          <li><a href="#"><strong>Publish</strong></a></li>
-                    
-                        </ul>
-                      </li>
-                      <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                
-                                <li><a href="{{ url('Embedcode') }}"><i class="fa fa-btn fa-sign-out"></i><strong>Embed Code</strong></a></li>
-                            
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i><strong>Logout</strong></a></li>
-                            
-
-                            </ul>
-                        </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-                
+           
 
                 
         @show
@@ -1120,39 +1240,66 @@ $.ajaxSetup({
     cache: false,
     dataType: "json",
     success: function(data){
-      
+     
     
         //console.log(Base64.decode(data.response));
       // alert(data.response);
+
+
+
     }
 });  
 }); 
-  
+  window.location.assign('home');
 }
 
 $(document).ready(function(){
   
-$('#boxb').attr("contentEditable","true");
-$('#page2').attr("contentEditable","true");
-$('#page3').attr("contentEditable","true");
-$('#page4').attr("contentEditable","true");
 
-        
+
         
         
        
-  
  
-  
-  });
+
+if( localStorage['draft']!=null)
+  {var  contentEl = document.getElementById("openModal");
+    contentEl.innerHTML=localStorage['draft'];
+      if(localStorage['ratingTypeInt']!=null){
+      setRatings(localStorage['ratingTypeInt']);
+      console.log("ratingTypeInt:"+localStorage['ratingTypeInt']);
+      }
+      if (localStorage['ratingSize']!=null){ 
+      setRatingSize(localStorage['ratingSize']);
+      }
+ }
+ 
+ if( localStorage['draft']==null)
+            {
+                setRatings('1');
+                setRatingSize('md');
+            }
+  $('#boxb').attr("contentEditable","true");
+$('#page2').attr("contentEditable","true");
+$('#page3').attr("contentEditable","true");
+$('#page4').attr("contentEditable","true");
+  }
+  );
 
 function resetDesign(){
-
-  localStorage.clear("draft");
+var r = confirm("You are about to destroy your design!! do you whish to proceed?");
+if (r == true) {
+    localStorage.clear("draft");
  location.reload();
   //alert("cache cleared");
+    setRatings('1');
+    setRatingSize('md');
+} else {
+    x = "You pressed Cancel!";
+}
+  
 
-
+    
 }
 
 
@@ -1249,7 +1396,7 @@ switch(value){
 })();
 //]]>
 
-$(document).ready(
+/*$(document).ready(
 function(){
 var ca = document.createElement("script"),t; 
                 ca.type = "text/javascript"; 
@@ -1261,13 +1408,10 @@ var ca = document.createElement("script"),t;
 }
 
   );
+*/
 
 
-$(document).ready(function(){
- 
-  
 
-});
 </script>
 
 

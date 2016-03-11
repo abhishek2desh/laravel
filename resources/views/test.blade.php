@@ -12,55 +12,38 @@
 <div class="container-fluid">
    	<div class="row">
     
-	  <div class="col-md-3 collapse" id="toolbox" >
-	  	<div class="panel panel-primary" style="overflow-x: hidden;overflow-y: scroll;height:100%">
-                <div class="panel-heading" style="background-color:#151515">
-                  <h3 class="panel-title">ToolBox</h3>
-                </div>
-                <div class="panel-body" style="background-color:#3d3d3d" >
-                  <ul class="list-group" style="position:relative;background-color:#3d3d3d">
-                    <li class="list-group-item" style="background-color:#3d3d3d;"><form class="list-group-item" style="background-color:#3d3d3d;" ><div class="form-group"><input id ="npsimgurl"type="text" class="form-control" placeholder="Input Logo URL"></div>
-                     <button id="imgset" type="button" class="btn btn-default btn-inverse">Set Logo</button>
-                   </form>
-                   </li>
-                    <li class="list-group-item" style="background-color:#3d3d3d;color:#fff"><div id="heading1" draggable="true" ondragstart="return dragStart(event)" ><h1  >Heading</h1></div></li>
-                   <li class="list-group-item" style="background-color:#3d3d3d;color:#fff"><div id="heading2" draggable="true" ondragstart="return dragStart(event)" ><h2 >Heading</h2></div></li>
-                   <li class="list-group-item" style="background-color:#3d3d3d;color:#fff"><div id="heading3" draggable="true" ondragstart="return dragStart(event)" ><h3  >Heading</h3></div></li>
-                    <li class="list-group-item" style="background-color:#3d3d3d;color:#fff"><div id="rd"  draggable="true" ondragstart="return dragStart(event)"><input type="radio"> radio  </input></div></li>
-                    <li class="list-group-item" style="background-color:#3d3d3d;color:#fff"><div id="chk"  draggable="true" ondragstart="return dragStart(event)"><input type="checkbox">  checkbox </input></div></li>
-                    <li class="list-group-item" style="background-color:#3d3d3d;"><div class="" ><textarea id="txtarea" style="height:10%" draggable="true"ondragstart="return dragStart(event)">text area</textarea></div></li>
-                    <li class="list-group-item" style="background-color:#3d3d3d;"><div id="star"  draggable="true" draggable="true" ondragstart="return dragStart(event)"><button>Cancel</button></div></li>
-                    <li class="list-group-item" style="background-color:#3d3d3d;"><div ><img id="round"  draggable="true" ondragstart="return dragStart(event)" src="http://www.tatvic.com/img/tatvic-logo.png"></div></li>
-                    <li class="list-group-item" style="background-color:#3d3d3d;"><div id="txt"  draggable="true" ondragstart="return dragStart(event)" ><input type="text" value="Enter any text here"></input></div></li>
-                  </ul> 
-                </div>
-              </div>
-        </div>
-        
-   
-     <div id="tabwindow" class="col-md-12  resize-container resize-drag" style="border:5px solid #585858; height:100%;overflow-x: hidden;">
+     <div id="tabwindow" class="col-md-12  resize-container resize-drag" style="height:100%;overflow-x: hidden;">
      
         <ul class="nav nav-tabs">
 
   
-  <li class="active" ><a href="#dropdown1"  data-toggle="tab"><span class="glyphicon glyphicon-wrench" aria-expanded="true"></span>&nbsp;Genral Settings</a></li>
-  <li class="divider"></li>
-  <li><a href="#dropdown2" data-toggle="tab"><span class="  glyphicon glyphicon-wrench"></span>&nbsp;Survey Configuration</a></li>
-  <li class="divider"></li>
-  <li ><a href="#dropdown3" data-toggle="tab" ><span class="  glyphicon glyphicon-wrench"></span>&nbsp;survey Flow</a></li>
-  <li class="divider"></li>
-  <li><a href="#dropdown4" data-toggle="tab"><span class="  glyphicon glyphicon-wrench"></span>&nbsp;Share Link Generator</a></li>
-  <li id="btnDesign1" data-toggle="collapse" data-target="#properties,#propTab"  ><a href="#design"    data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Design</a></li>
-  <li ><a href="#" onClick="saveDraftLocal()" data-toggle=""><span class=" glyphicon glyphicon-eye-open"></span>&nbsp;Preview</a></li>
-  <li ><a href="#" onClick="saveDesignDb()" data-toggle=""><span class="  glyphicon glyphicon-floppy-disk"></span>&nbsp;Save & Publish </a></li>
-  <li ><a href="#" onClick="resetDesign()" data-toggle=""><span class="glyphicon glyphicon-refresh"></span>&nbsp;Reset Design</a></li>
+        <li class="active" ><a href="#dropdown1" onClick="setOption('false')" data-toggle="tab"><span class="glyphicon glyphicon-wrench" aria-expanded="true"></span>&nbsp;Genral Settings</a></li>
+        <li class="divider"></li>
+        <li><a href="#dropdown2" onClick="setOption('false')" data-toggle="tab"><span class="  glyphicon glyphicon-wrench"></span>&nbsp;Survey Configuration</a></li>
+        <li class="divider"></li>
+        <li ><a href="#dropdown3" onClick="setOption('false')" data-toggle="tab" ><span class="  glyphicon glyphicon-wrench"></span>&nbsp;survey Flow</a></li>
+        <li class="divider"></li>
+        <li><a href="#dropdown4" onClick="setOption('false')" data-toggle="tab"><span class="  glyphicon glyphicon-wrench"></span>&nbsp;Link Generator</a></li>
+        <li id="btnDesign1" data-toggle="collapse" data-target=""  ><a href="#design" onClick="setOption('true')"    data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Design</a></li>
+        <li ><a href="#" onClick="saveDraftLocal()" data-toggle=""><span class=" glyphicon glyphicon-eye-open"></span>&nbsp;Preview</a></li>
+        <li ><a href="#" onClick="saveDesignDb()" data-toggle=""><span class="  glyphicon glyphicon-floppy-disk"></span>&nbsp;Save & Publish </a></li>
+        <li ><a href="#" onClick="resetDesign()" data-toggle=""><span class="glyphicon glyphicon-refresh"></span>&nbsp;Reset Design</a></li>
+        <li role="presentation" class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu" >
+                                <li  ><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+        </li>
   
 </ul>
-<div id="myTabContent" class="tab-content">
+<div id="myTabContent" class="tab-content" style="height:100%">
   
     <div class="tab-pane fade active in" id="dropdown1">
     <div class="container-fluid">
-      <center><strong>General Settings</strong></center>
+      <div class="legends">General Settings</div>
       <form id="gnrSet" class="form-horizontal">
   <fieldset>
     <legend></legend>
@@ -110,8 +93,8 @@
          
     <div class="form-group">
       <div class="col-md-8 col-md-offset-5">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="button"  class="btn btn-primary" onClick='sendForm(1)'>Next</button>
+        <button type="reset" class="btn btn-danger button">Cancel</button>
+        <button type="button"  class="btn btn-primary button" onClick='sendForm(1)'>Next</button>
         <input type="hidden" name="formNo" value="1">
       </div>
     </div>
@@ -123,7 +106,8 @@
 
   <div class="tab-pane fade" id="dropdown2">
       <div class="container-fluid">
-      <center><strong>Survey Configuration</strong></center>
+      
+       <div class="legends">Survey Configuration</div>
       <form id="srvConfig" class="form-horizontal">
   <fieldset>
     <legend></legend>
@@ -143,7 +127,7 @@
       <div class="col-md-3 ">
         <div class="checkbox">
           <label>
-               <input type="checkbox" name="closeBtnBox" data-size="normal" checked>
+               <input type="checkbox" name="closeBtnBox" data-size="large" checked>
           </label>
         </div>
       </div>
@@ -169,30 +153,12 @@
       </div>
       <label for="visitCookie" class="col-md-1  control-label">Visit</label>
     </div>
-
-     <div class="form-group">
-      <label for="inputWeb" class="col-md-4  control-label">Number of views in session to trigger</label>
-      <div class="col-md-3 ">
-        <input type="text" class="form-control" name="cookieCount">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4  control-label" >Show Open feed to visitor</label>
-      <div class="col-md-3 ">
-        <div class="checkbox">
-          <label>
-               <input type="checkbox" name="openFeedBox" data-size="normal" checked>
-          </label>
-        </div>
-      </div>
-    </div>
-    
+         
          
     <div class="form-group">
-      <div class="col-md-8 col-md-offset-3">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="button" class="btn btn-primary" onClick='sendForm(2)'>Next</button>
+      <div class="col-md-8 col-md-offset-4">
+        <button type="reset" class="btn btn-danger button">Cancel</button>
+        <button type="button" class="btn btn-primary button" onClick='sendForm(2)'>Next</button>
         <input type="hidden" name="formNo" value="2">
       </div>
     </div>
@@ -203,7 +169,8 @@
   </div>
   <div class="tab-pane fade" id="dropdown3" >
      <div class="container-fluid">
-      <center><strong>Flow Settings</strong></center>
+      
+       <div class="legends">Flow Settings</div>
     <form id='workFlow' class="form-horizontal">
   <fieldset>
     <legend></legend>
@@ -214,8 +181,8 @@
       <div class="col-md-2">
         <div class="radio">
           <label>
-            <input type="radio" name="tvc_detract" id="optionsRadios1" value="feedback" >
-            get open feedBack
+            <input type="radio" name="tvc_detract" id="optionsRadios1" value="feedback" checked="">
+            Detractor FeedBack Form
           </label>
         </div>
         <div class="radio">
@@ -224,12 +191,7 @@
             Redirect to Url
           </label>
         </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="tvc_detract" id="optionsRadios3" value="page" checked="">
-            Goto Modal Page #
-          </label>
-        </div>
+        
       </div>
       <div class="col-md-3">
         <input type="text" class="form-control" name="input_detractor" placeholder="value(optional)">
@@ -243,7 +205,7 @@
         <div class="radio">
           <label>
             <input type="radio" name="tvc_pass" id="optionsRadios1" value="feedback" checked="">
-            get open feedBack
+            Passive promoter FeedBack Form
           </label>
         </div>
         <div class="radio">
@@ -252,12 +214,7 @@
             Redirect to Url
           </label>
         </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="tvc_pass" id="optionsRadios3" value="page" checked="">
-            Goto Modal Page #
-          </label>
-        </div>
+        
       </div>
       <div class="col-md-3">
         <input type="text" class="form-control" name="tvc_passive" placeholder="value(optional)">
@@ -270,22 +227,17 @@
       <div class="col-md-2">
         <div class="radio">
           <label>
-            <input type="radio" name="tvc_promo" id="optionsRadios1" value="feedback" >
-            get open feedBack
+            <input type="radio" name="tvc_promo" id="optionsRadios1" value="feedback" checked="">
+            Share To Social Media
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="tvc_promo" id="optionsRadios2" value="url" checked="">
+            <input type="radio" name="tvc_promo" id="optionsRadios2" value="url" >
             Redirect to Url
           </label>
         </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="tvc_promo" id="optionsRadios3" value="page" >
-            Goto Modal Page #
-          </label>
-        </div>
+      
       </div>
       <div class="col-md-3">
         <input type="text" class="form-control" name="tvc_promoter" placeholder="value(optional)">
@@ -294,8 +246,8 @@
         
     <div class="form-group">
       <div class="col-md-8 col-md-offset-5">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="button" class="btn btn-primary" onClick='sendForm(3)'>Next</button>
+        <button type="reset" class="btn btn-danger button">Cancel</button>
+        <button type="button" class="btn btn-primary button" onClick='sendForm(3)'>Next</button>
         <input type="hidden" name="formNo" value="3">
       </div>
     </div>
@@ -308,7 +260,8 @@
   
   <div class="tab-pane fade" id="dropdown4">
     <div class="container-fluid">
-      <center><strong>Facebook and Twitter links Genrator</strong></center>
+     
+        <div class="legends">Facebook and Twitter links Generator</div>
       <form id="customText" class="form-horizontal">
   <fieldset>
     <legend></legend>
@@ -317,7 +270,7 @@
     <div class="form-group">
       <label for="title" class="col-md-5  control-label">Post Title</label>
       <div class="col-md-3 ">
-        <input  type="text" class="form-control" name="title">
+        <input id="sharetext"  type="text" class="form-control" name="title">
       </div>
     </div>
 
@@ -332,14 +285,14 @@
     <div class="form-group">
       <label for="inputWeb" class="col-md-5  control-label">Url</label>
       <div class="col-md-3 ">
-        <input type="text"  class="form-control" name="fbUrl" placeholder="product/website url">
+        <input id="shareurl" type="text"  class="form-control" name="fbUrl" placeholder="product/website url">
       </div>
     </div>
     
     <div class="form-group">
-      <div class="col-md-5 col-md-offset-5">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="button" class="btn btn-primary" onClick='sendForm(4)'>Submit</button>
+      <div class="col-md-8 col-md-offset-5">
+        <button type="reset" class="btn btn-danger button">Cancel</button>
+        <button type="button" class="btn btn-primary button" onClick='sendForm(4)'>Submit</button>
         <input type="hidden" name="formNo" value="4">
         
       </div>
@@ -351,80 +304,50 @@
   </div>
   
   <div class="tab-pane fade" id="design" >
-    <div class="fontEdit" id="formatText" >
-  <span class="glyphicon glyphicon-font">
-
-  </span>
-
-  <span class="glyphicon glyphicon-bold">
-  </span>
-
-  <span class="glyphicon glyphicon-italic">
-  </span>
-
-  <span class="glyphicon glyphicon-align-left">
-  </span>
-
- <span class="glyphicon glyphicon-align-center">
-  </span >
-
-  <span class="glyphicon glyphicon-align-right">
-  </span>
- 
-  <span class="glyphicon glyphicon-align-justify">
-  </span>
-
-</div>
-      <center>
-        <ul class="pagination">
+    
+     <div class="container" style="float:right;right:20%">
+       <nav> <ul class="pagination" >
               <li class="disabled"><a href="#">&laquo;</a></li>
-              <li onClick="getPage(1)" class="active"><a href="#boxb">Questionair</a></li>
-              <li onClick="getPage(2)" ><a href="#page2">Detractors Feedback</a></li>
-              <li onClick="getPage(3)" ><a href="#page3">Passive Promoter Feedback</a></li>
-              <li onClick="getPage(4)" ><a href="#page4">Thank You &Share</a></li>
-              <li onClick="getPage(5)" ><a href="#page4">Blank</a></li>
+              <li onClick="getPage(1)" class="active"><a href="#">Nps Main Page</a></li>
+              <li onClick="getPage(2)" ><a href="#">Detractors Feedback</a></li>
+              <li onClick="getPage(3)" ><a href="#">Passive Promoter Feedback</a></li>
+              <li onClick="getPage(4)" ><a href="#">Thank You & Share</a></li>
               <li class="disabled"><a href="#">&raquo;</a></li>
             </ul>
-
-      </center>
-     <div id="openModal" class="modalDialog" >
+        </nav>
+     </div>
+      <div id="openModal" class="modalDialog" >
             <div contentEditable='true' id="boxb" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)"> 
                 <a href="#" title="Close" class="close">X</a>
-               <CENTER> <img class="nps_logo_img" src=""></CENTER>
-                <h2 class="popTitle">company/website name</h2>
+               <CENTER> <img class="nps_logo_img tip" tip="company logo" src="" alt="Here comes your logo"></CENTER>
+                
                 <h3 class="popTitle">We'd love your help.</h3>                        
                 <p style="text-align:center" id="qstn" >How likely is it that you would recommend</p><p style="text-align:center" id="qstn"> our service to a friend?</p>
-                  
-               
-
-
-
-              
                  
             </div>
 
-             <div contentEditable='true' id="page2" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)"> 
+             <div contentEditable='true' id="page2" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)" style="height:350px"> 
                 <a href="#close" title="Close" class="close">X</a>
                <CENTER> <img class="nps_logo_img" src=""></CENTER>
-                <h2 class="popTitle">Logo</h2>
+                
                 <h3 class="popTitle">We regret for your inconvenience,please give us your suggestion how to make our services better.</h3>
                   <textarea class="form-control" cols="15" rows="6" style="posiiton:absolute;width:100%px;height:100%px">
               
                   </textarea>           
-                  <center><button class="btn btn-info">Submit</button></center>
+                  <center><button type="button"  class="btn btn-info" style="margin-top:25px;width:150px">Submit</button></center>
             </div>
 
-              <div contentEditable='true' id="page3" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)"> 
+              <div contentEditable='true' id="page3" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)" style="height:350px"> 
                 <a href="#close" title="Close" class="close">X</a>
                 <CENTER><img class="nps_logo_img" src=""></CENTER>
-                <h2 class="popTitle">Logo</h2>
+               
                 <h3 class="popTitle">We regret for your inconvenience, please give us your suggestion how to make our services better.</h3>
                <textarea class="form-control" cols="15" rows="6"  style="posiiton:absolute;width:100%px;height:50%px">
 
                </textarea>
                 
                              
-                  <center><button class="btn btn-info">Submit</button></center>
+                  <center><button type="button"  class="btn btn-info" style=" margin-top:25px;width:150px">Submit</button></center>
             </div>
 
             <div contentEditable='true' id="page4" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)"> 
@@ -437,7 +360,7 @@
                 <h1 class="popTitle">Thank you for your feedback!</h1>
                 <CENTER><p>Your feedback will help us improve our services
                   to get your job done even better</p></CENTER><br/>
-
+                 <CENTER><b><p>Spread the word!</p></b></CENTER><br/>
 
 
                 <div id="tvc_social">
@@ -448,22 +371,23 @@
              
                              
                   
-            </div>
+              </div>
               
-     </div>
+           </div>
+          
   </div>
 
   
   </div>
 
-<div id="properties" class="col-md-3 collapse" style="float:right;top:0px;display:none">
-      <div class="panel panel-primary resize-container resize-drag" style="overflow-x: hidden;overflow-y: scroll;height:60%;background-color:#151515" >
+<div id="properties" class="col-md-3 collapse" style="float:left;left:75%;position:inherite;top:0px;display:none">
+      <div class="panel panel-primary resize-container resize-drag" style="overflow-x: hidden;overflow-y: scroll;height:60%;background-color:#fff" >
                 <div class="panel-heading" style="background-color:#151515">
                   <h3 class="panel-title">Properties Window</h3>
                 </div>
 
-                <div class="panel-body table-responsive" style="background:#3d3d3d">
-                 <table class="table" style="position:relative;color:#fff;background-color:#3d3d3d">
+                <div class="panel-body table-responsive" style="background:#fff">
+                 <table class="table" style="position:relative;color:#011627;background-color:#fff">
                    <thead>
                      <tr>                                            
                         <th colspan="2"  ><div data-toggle="collapse" data-target="#modalprop" style="color:#3884FC"><span class="caret"></span> &nbsp;&nbsp; Modal Properties</div></th>
@@ -583,21 +507,21 @@
                       <tr>
                         <td>Opacity</td>
                         <td>
-                          <input  id="closeOpacity"  onchange="" class="form-control input-sm" value="1"></input>
+                          <input  id="closeOpacity" type="number" min=0 max=1 step=0.1 onchange="updateclsopc (value)" class="form-control input-sm" value="1"></input>
                         </td>
                       
                       </tr>
                       <tr>
                         <td>Background</td>
                         
-                         <td><input id="clsBckClr" class="jscolor form-control input-sm" onchange="" value="000000"></input></td>
+                         <td><input id="clsBckClr" class="jscolor form-control input-sm" onchange="updateclsbkclr(value)" value="000000"></input></td>
                        
                       
                       </tr>
                       <tr>
                         <td>Fore Color</td>
                      
-                         <td><input id="clsFrClr" class="jscolor form-control input-sm" onchange="" value="ffffff"></input></td>
+                         <td><input id="clsFrClr" class="jscolor form-control input-sm" onchange="updateclsclr(value)" value="ffffff"></input></td>
                         
                       </tr>
 
@@ -635,7 +559,7 @@
               </div>
 
           </div>
-<div id="propTab" class="collapse" style="top:0px;float:right;margin-left=70%;width:44px;height:10%;"><center><span class="glyphicon glyphicon-cog"></span></center></div>
+<div id="propTab" class="collapse" style="position:fixed;top:25%;float:left;margin-left=5%;width:50px;height:100px;z-index:9999;cursor:pointer;"><center><span class=" rotate glyphicon glyphicon-cog" ><div style="height:50%;"><h3>Developer Options</h3></div></span></center></div>
 
 </div>
 
@@ -751,6 +675,31 @@
   </div>
 </div>
 </div>
-<div id="toolTip" style="position:absolute;top:0;width:auto;height:20px;opacity:0.7;background:#fff;color:#000;display:none"></div>
+<div id="toolTip" style="position:absolute;top:0;width:auto;height:20px;opacity:0.7;background:#fff;color:#000;display:none;z-index:9999"></div>
+<div class="fontEdit" id="formatText" style="position:absolute;top:0;width:auto;height:20px;opacity:0.8;background-color:#FFF;display:none;cursor:pointer;">
+       <span class="glyphicon glyphicon-font tip" tip="Fonts">
+       
+
+       </span>
+
+      <span class="glyphicon glyphicon-bold tip" tip="Bold">
+      </span>
+
+      <span class="glyphicon glyphicon-italic tip" tip="Italics">
+      </span>
+
+      <span class="glyphicon glyphicon-align-left tip" tip="Left Justify">
+      </span>
+
+     <span class="glyphicon glyphicon-align-center tip" tip="Center Align">
+      </span >
+
+      <span class="glyphicon glyphicon-align-right tip" tip="Right Justify">
+      </span>
+     
+      <span class="glyphicon glyphicon-align-justify tip" tip="Justify">
+      </span>
+
+</div>
 
 @stop

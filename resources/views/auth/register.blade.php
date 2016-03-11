@@ -3,7 +3,20 @@
 
 
 @section('content')
-
+<style type="text/css">
+.panel{
+    border: 2px solid darkgrey;
+ -webkit-border-radius: 12px;
+              -moz-border-radius: 12px;
+              border-radius: 12px;
+              -moz-box-shadow: 1px 1px 3px #000;
+              -webkit-box-shadow: 1px 1px 3px #000;
+              box-shadow: 1px 1px 3px #000;
+}
+.panel-heading {-webkit-border-radius: 12px;
+              -moz-border-radius: 12px;
+              border-radius: 12px;}
+</style>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
